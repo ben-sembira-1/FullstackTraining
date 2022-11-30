@@ -39,5 +39,7 @@ The online road maps:
 - [x] Service Workers [[1]](https://developer.chrome.com/docs/workbox/service-worker-overview/) [[2]](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
 - [x] Web Workers [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [x] DOM [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-- [ ] Window
+- [x] Window [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+
+### More Stuff
 - [ ] Web Sockets
