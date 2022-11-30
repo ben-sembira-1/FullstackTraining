@@ -32,3 +32,11 @@ The online road maps:
 |Backend|2|Chapters 10, 11, 12|||
 |Testing|2|Chapter 7|||
 |Finishing|1|Chapters 13-15|||
+
+## Topics To Learn
+### After Chapter 1, Rise of the Web
+- [x] Service Workers [[1]](https://developer.chrome.com/docs/workbox/service-worker-overview/) [[2]](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
+- [x] Web Workers [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [x] DOM [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+- [ ] Window
+- [ ] Web Sockets
