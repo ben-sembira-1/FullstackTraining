@@ -26,9 +26,9 @@ The online road maps:
 
 |Part|Days|Book Chapters|Excercises|Financer|
 |-|-|-|-|-|
-|Backround|1-2|Chapters 1 - 5|||
-|JavaScript||Chapters 6, 8|||
-|React||Chapters ...|||
-|Backend||Chapters 10, 11, 12|||
-|Testing||Chapter 7|||
-|Finishing||Chapters 13-15|||
+|Backround|2|Chapters 1 - 5|||
+|JavaScript|6|Chapters 6, 8|[JavaScript Track](https://exercism.org/tracks/javascript)||
+|React|11|Chapters ...|||
+|Backend|2|Chapters 10, 11, 12|||
+|Testing|2|Chapter 7|||
+|Finishing|1|Chapters 13-15|||
