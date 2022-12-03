@@ -22,6 +22,7 @@ The online road maps:
   - [JavaScript](https://roadmap.sh/javascript)
   - [React](https://roadmap.sh/react)
 - [mdn web docs](https://developer.mozilla.org/en-US/)
+- [Epic React Articles](https://epicreact.dev/articles)
 
 ### Plan
 
