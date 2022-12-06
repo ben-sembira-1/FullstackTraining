@@ -25,6 +25,7 @@ The online road maps:
   - [HTML mdn docs](https://developer.mozilla.org/en-US/docs/Learn/HTML)
   - [CSS mdn docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
 - [Epic React Articles](https://epicreact.dev/articles)
+- [Epic Web Articles](https://www.epicweb.dev/)
 
 ### Plan
 
