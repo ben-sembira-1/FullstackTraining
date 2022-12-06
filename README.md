@@ -30,7 +30,7 @@ The online road maps:
 |-|-|-|-|-|
 |Backround|2|Chapters 1 - 5|||
 |JavaScript|6|Chapters 6, 8|[JavaScript Track](https://exercism.org/tracks/javascript)||
-|React|11|Chapters ...|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html) [4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises) [Code academy](https://www.codecademy.com/learn/react-101) After enough tutorials, Move to the react roadmap||
+|React|11|Chapters ...|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html), [4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises), [Code academy](https://www.codecademy.com/learn/react-101), After enough tutorials, Move to the react roadmap||
 |Backend|2|Chapters 10, 11, 12|||
 |Testing|2|Chapter 7|||
 |Finishing|1|Chapters 13-15|||
