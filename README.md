@@ -22,18 +22,20 @@ The online road maps:
   - [JavaScript](https://roadmap.sh/javascript)
   - [React](https://roadmap.sh/react)
 - [mdn web docs](https://developer.mozilla.org/en-US/)
+  - [HTML mdn docs](https://developer.mozilla.org/en-US/docs/Learn/HTML)
+  - [CSS mdn docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
 - [Epic React Articles](https://epicreact.dev/articles)
 
 ### Plan
 
 |Part|Days|Book Chapters|Excercises|Financer|
 |-|-|-|-|-|
-|Backround|2|Chapters 1 - 5|||
-|JavaScript|6|Chapters 6, 8|[JavaScript Track](https://exercism.org/tracks/javascript)||
-|React|11|Chapters ...|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html), [4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises), [Code academy](https://www.codecademy.com/learn/react-101), After enough tutorials, Move to the react roadmap||
-|Backend|2|Chapters 10, 11, 12|||
-|Testing|2|Chapter 7|||
-|Finishing|1|Chapters 13-15|||
+|Backround|2|Chapters 1 - 5||Design a prototype for the Financer|
+|HTML & CSS|2|Chapter 6, [HTML mdn docs](https://developer.mozilla.org/en-US/docs/Learn/HTML), [CSS mdn docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)||Design a simple frontend to the Financer home page|
+|JavaScript|6|Chapter 8|[JavaScript Track](https://exercism.org/tracks/javascript)||
+|React|12|Chapters ...|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html), [4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises), [Code academy](https://www.codecademy.com/learn/react-101), After enough tutorials, Move to the react roadmap||
+|Backend|1|Chapters 10, 11, 12|||
+|Finishing|1|Chapters 7, 13-15|||
 
 ## Topics To Learn
 ### After Chapter 1, Rise of the Web
