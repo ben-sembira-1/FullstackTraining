@@ -1,10 +1,37 @@
+* {
+    margin: 10px;
+}
+
 .profile-picture {
     border-radius: 50%;
     width: auto;
-    height: 25%;
+    height: 50%;
 
 }
 
 #ben-profile-picture {
     box-shadow: 10%;
+    width: min-content
+}
+
+.article p {
+    border-style: dashed;
+    border-color: blue;
+    border-width: 1px;
+    padding: 10px;
+}
+
+.vertical-div {
+    display: flex;
+    flex-direction: row;
+}
+
+#profile-header {
+    flex: 1;
+    min-width: min-content;
+    height: 25%
+}
+
+#profile-short-bio {
+    flex: 3;
 }
