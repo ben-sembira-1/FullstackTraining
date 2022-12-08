@@ -2,15 +2,17 @@
 Any code review will be appreciated!
 
 ## Goals
-1. Get familiar with a wide range of full-stack concepts.
-1. Obtain some experiance by creating one full stack application. See [Financer](https://github.com/ben-sembira-1/Financer)
+Get familiar with a wide range of full-stack concepts.
+- Structuring with HTML
+- Styling with CSS and its invariants
+- Scripting with JS and its invariants
+- Testing frontend
+- Frameworks, featuring React.
 
 ## Learning  Track
 I have 2 monthes of 3 days per week, this sums up to 24 work days, So eficiency is important.
 
-In those days I will attempt to read as much as I can from the book "The Full Stack Developer" and learn JavaScript and React.
-
-Meanwile, I will try to use my new skills to write my own project [Financer](https://github.com/ben-sembira-1/Financer).
+In those days I will attempt to read as much as I can from the [sources](#knowledge-sources) and learn (through practice too) as much concepts as I can.
 
 ### Knowledge Sources
 All the sources are located under the `documents/` folder. It contains:
@@ -30,15 +32,16 @@ The online road maps:
 
 ### Plan
 
-|Part|Days|Book Chapters|Excercises|
+|Part|Days|Reading Matterials|Excercises|
 |-|-|-|-|-|
-|Backround|2|Chapters 1 - 5||
-|HTML & CSS|3|Chapter 6, [HTML mdn docs](https://developer.mozilla.org/en-US/docs/Learn/HTML), [CSS mdn docs](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)|[mdn Getting started With the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web), [mdn HTML guide](https://developer.mozilla.org/en-US/docs/Learn/HTML), [mdn CSS guide](https://developer.mozilla.org/en-US/docs/Learn/CSS)|
-|JavaScript|6|Chapter 8|[mdn JavaScript guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript), [JavaScript Track](https://exercism.org/tracks/javascript)|
-|React|12|Chapters ...|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html), [4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises), [Code academy](https://www.codecademy.com/learn/react-101), After enough tutorials, Move to the react roadmap|
-|Backend|1|Chapters 10, 11, 12||
-|Finishing|1|Chapters 7, 13-15||
-|Final Project - Financer|6||Create a simple financer app. See [financer exercise](#financer-exercise)|
+|Backround|2 days|Chapters 1 - 5||
+|Frontend (HTML & CSS)|3 days|Chapter 6, 9|[mdn Getting started With the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web), [mdn HTML guide](https://developer.mozilla.org/en-US/docs/Learn/HTML), [mdn CSS guide](https://developer.mozilla.org/en-US/docs/Learn/CSS)|
+|JavaScript|5 days|Chapter 8|[mdn JavaScript guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript), [JavaScript Track](https://exercism.org/tracks/javascript)|
+|Client Side Frameworks|9 days|[Official intro tutorial to react](https://reactjs.org/tutorial/tutorial.html), [Epic React Articles](https://epicreact.dev/articles), [mdn tools and testing (without development tools, git and testing)](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing)|[4geeks exercices](https://github.com/4GeeksAcademy/react-tutorial-exercises), [Code academy](https://www.codecademy.com/learn/react-101), After enough tutorials, Move to the react roadmap. This is very react hardcore, maybe the correct thing is just to read about different frameworks and not to learn only react.|
+|Backend Frameworks|3 days|Chapters 10, 11, 12, [mdn server-side programming](https://developer.mozilla.org/en-US/docs/Learn/Server-side)||
+|Finishing|1 day|Chapters 7, 13-15||
+|Additional Stuff|2 days|[mdn Web forms](https://developer.mozilla.org/en-US/docs/Learn/Forms), [mdn Accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility), [mdn Client-side web development tools](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools), [mdn cross browser testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
+|**total:**|24 days|||
 
 ## Topics To Learn
 ### After Chapter 1, Rise of the Web
@@ -49,6 +52,3 @@ The online road maps:
 
 ### More Stuff
 - [ ] Web Sockets
-
-## Financer Exercise
-This will be a narrow version of what is specified in [Financer](https://github.com/ben-sembira-1/Financer).
