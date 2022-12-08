@@ -33,7 +33,7 @@ The online road maps:
 ### Plan
 
 |Part|Days|Reading Matterials|Excercises|
-|-|-|-|-|-|
+|-|-|-|-|
 |Backround|2 days|Chapters 1 - 5||
 |Frontend (HTML & CSS)|3 days|Chapter 6, 9|[mdn Getting started With the web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web), [mdn HTML guide](https://developer.mozilla.org/en-US/docs/Learn/HTML), [mdn CSS guide](https://developer.mozilla.org/en-US/docs/Learn/CSS)|
 |JavaScript|5 days|Chapter 8|[mdn JavaScript guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript), [JavaScript Track](https://exercism.org/tracks/javascript)|
