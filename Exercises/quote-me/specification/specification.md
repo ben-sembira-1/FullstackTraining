@@ -55,7 +55,7 @@ Most of the text is in the prototype.
 - The backround is light grey
 
 ### Logo
-<img src="logo.png" style="border:0px">
+<img src="../images/logo.png" style="border:0px">
 
 
 ### Font
