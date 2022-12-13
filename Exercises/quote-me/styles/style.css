@@ -94,11 +94,6 @@ body {
     border-top: 1px solid black;
 }
 
-.content-section_ranking .rank {
-    list-style-type: upper-roman;
-    list-style-position: inside;
-}
-
 .content-section_ranking {
     padding: 0px;
 }
