@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>My test page</title>
+    <title>Iconic!</title>
 </head>
 
 <!--
@@ -30,12 +30,37 @@
         Or should it be a label contained inside an anchor tag?
 -->
 
+<!--TODO: Change all profile links to a profile page instead of google-->
+
 <body>
     <div class="top-row">
         <h1 class="top-row_header">Iconic!</h1>
         <img class="top-row_logo logo" src="images/logo.png" alt="Website logo: speech bubble with apostrophes" />
         <p class="top-row_phrase">May the most bizarre, delusional and mad person win.</p>
         <button class="top-row_new-quote button">Add a new quote</button>
+    </div>
+    <div class="ranking">
+        <h2 class="ranking_header">The Most Iconic</h2>
+        <ol class="ranking_table ranking-table">
+            <li class="ranking-table_single-rank rank">
+                <div class="rank_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                    <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                    <lablel class="profile-thumbnail_name">
+                        <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
+                    </lablel>
+                </div>
+                <label class="rank_score">138 Points</label>
+            </li>
+            <li>
+                <div class="rank_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                    <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                    <lablel class="profile-thumbnail_name">
+                        <a href="https://www.google.com/search?q=Albert%20Einstein">Albert Einstein</a>
+                    </lablel>
+                </div>
+                <label class="rank_score">90 Points</label>
+            </li>
+        </ol>
     </div>
     <div class="feed">
         <h2>Quotes Feed</h2>
@@ -50,7 +75,7 @@
             <li class="quotes-list_single-quote quote-card">
                 <div class="quote-card_quoted-person profile-thumbnail">
                     <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
-                    <lablel class="profile-thumbnail_name">
+                    <lablel class="profile-thumbnail_name profile-name">
                         <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
                     </lablel>
                 </div>
@@ -58,8 +83,8 @@
                     Sometimes I wish i was a bird, so I could just poop on random people.
                 </p>
                 <time class="quote-card_timestamp" datetime="2022-11-18T14:54:39.929">1 month ago</time>
-                <div class="quote-card_reporter reporter">
-                    Uploaded by: <div class="reporter_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                <div class="quote-card_uploader uploader">
+                    Uploaded by: <div class="uploader_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
                         <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
                         <lablel class="profile-thumbnail_name">
                             <a href="https://www.google.com/search?q=Albert%20Einstein">Albert Einstein</a>
