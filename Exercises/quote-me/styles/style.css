@@ -89,7 +89,8 @@ body {
     height: auto;
 }
 
-li {
+.rank,
+.quote-card {
     border-top: 1px solid black;
 }
 
