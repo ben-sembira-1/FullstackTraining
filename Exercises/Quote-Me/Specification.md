@@ -19,7 +19,7 @@
   - How many people liked it?
   - Who uploded the quote?
 - Hall of fame of the most iconic people (With the most quotes and likes)
-  - The iconiciety level of one will be calculated as:
+  - The iconicity level of one will be calculated as:
     - For each quote: 3 points
     - For each like: 1 point
     - For each superb: 2 points
