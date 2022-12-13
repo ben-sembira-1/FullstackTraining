@@ -1,6 +1,8 @@
 # My official full-stack training :)
 Any code review will be appreciated!
 
+In the code there are comments that start with HELP. Those are questions that are aimed to any code reviewer that reviews my code.
+
 ## Goals
 Get familiar with a wide range of full-stack concepts.
 - Structuring with HTML
