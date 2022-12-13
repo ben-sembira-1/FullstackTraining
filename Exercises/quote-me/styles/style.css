@@ -6,12 +6,11 @@ html {
 
 h1 {
     font-size: 60px;
-    text-align: center;
 }
 
 p,
 li {
-    font-size: 16;
+    font-size: 24px;
     line-height: 2;
     letter-spacing: 1px;
 }
@@ -31,10 +30,9 @@ body {
     padding: 5px;
 }
 
-.logo {
-    background-color: #e3e3e3;
-    padding: 10px;
-    border-radius: 30%;
+.button:hover {
+    background-color: #5a216f;
+    cursor: pointer;
 }
 
 .top-row {
@@ -47,7 +45,7 @@ body {
     margin: 0 auto;
 }
 
-.top-row_header {
+.logo_header {
     margin: 0 auto;
     padding: 20px 0;
     color: #9538B7;
@@ -56,4 +54,22 @@ body {
 
 .top-row_new-quote {
     font-size: 30px;
+}
+
+.content-section {
+    display: flex
+}
+
+.content-section>* {
+    display: inline;
+    border-style: dashed;
+
+}
+
+.content-section_ranking {
+    flex: 1;
+}
+
+.content-section_feed {
+    flex: 4;
 }
