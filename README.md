@@ -52,5 +52,8 @@ The online road maps:
 - [x] DOM [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 - [x] Window [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 
+### After finishing mdn getting started html chapter
+- [ ] CORS [[origin]](https://developer.mozilla.org/en-US/docs/Glossary/Origin) [[same-origin-policy]](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) [[cross-origin-resource-sharing]](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
 ### More Stuff
 - [ ] Web Sockets
