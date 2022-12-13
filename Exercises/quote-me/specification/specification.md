@@ -8,8 +8,7 @@
 - Its main purpose is to be a fun place for saving iconic quates.
 - Optional names:
   - Quote Me
-  - Thats What She Said
-  - Iconic
+  - Iconic!
 
 ### What information am I presenting on the subject?
 
@@ -19,8 +18,8 @@
   - Who said that? Name + picture
   - When was the quote uploaded?
   - The quote itself
-  - Is it inapropriate?
   - How many people liked it?
+  - How many peaple think it is superb?
   - Who uploded the quote?
 - Hall of fame of the most iconic people (With the most quotes and likes)
   - The iconicity level of one will be calculated as:
@@ -32,11 +31,10 @@
 
 - There is a main theme color
 - As far as a quote is more iconic, it will glow more
-- The top row containes a logo, a "New Quote" button and a profile picture to see personal score and quotes
+- The top row containes a logo and a "New Quote" button
 - A table is present on the left side of the screen with the hall of fame
 - The main part of the page is the feed, it can be customized:
   - Sorting (toggle): recent, best
-  - Inapropriate Quotes (toggle)
 
 
 ## Design
@@ -47,7 +45,6 @@
 ### Text
 
 Most of the text is in the prototype.
-- Website name: Quote Me
 
 ### Color Theme
 
