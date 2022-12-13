@@ -8,6 +8,14 @@ h1 {
     font-size: 60px;
 }
 
+ol {
+    padding: 0px 10px;
+}
+
+li {
+    list-style: none;
+}
+
 p,
 li {
     font-size: 24px;
@@ -18,15 +26,15 @@ li {
 body {
     width: 90%;
     margin: 0 auto;
-    padding: 0 20px 20px 20px;
+    /* padding: 0 20px 20px 20px; */
     border: 1px solid black;
 }
 
 .button {
     background-color: #9538B7;
     color: white;
-    border-radius: 20%;
-    border-style: dotted;
+    border-radius: 10px;
+    border: 1px solid black;
     padding: 5px;
 }
 
@@ -38,6 +46,7 @@ body {
 .top-row {
     display: flex;
     align-items: center;
+    /* border-style: groove; */
 }
 
 .top-row * {
@@ -57,13 +66,13 @@ body {
 }
 
 .content-section {
-    display: flex
+    display: flex;
 }
 
 .content-section>* {
     display: inline;
-    border-style: dashed;
-
+    /* border-style: dashed; */
+    text-align: center;
 }
 
 .content-section_ranking {
@@ -72,4 +81,32 @@ body {
 
 .content-section_feed {
     flex: 4;
+}
+
+/* TODO: Change the width to something responsive */
+.profile-thumbnail_image {
+    width: 50px;
+    height: auto;
+}
+
+li {
+    border-top: 1px solid black;
+}
+
+.content-section_ranking .rank {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+}
+
+.content-section_ranking {
+    padding: 0px;
+}
+
+.rank,
+.quote-card,
+.comments_list {
+    background-color: #ede5f0;
+    margin: 30px 0px;
+    border-radius: 20px;
+    /* border-style: double; */
 }
