@@ -6,6 +6,10 @@
 
 - This is a website of quotes.
 - Its main purpose is to be a fun place for saving iconic quates.
+- Optional names:
+  - Quote Me
+  - Thats What She Said
+  - Iconic
 
 ### What information am I presenting on the subject?
 
