@@ -26,7 +26,7 @@
                 resolved in "compile" time?
     
     3.  I want to keep the structure correct, and for all the links in the document to be anchor(<a>) tags.
-        But how can I do it with images? Am I doing it correct inthe profile-tumbnail objects?
+        But how can I do it with images? Am I doing it correct inthe profile-thumbnail objects?
         Or should it be a label contained inside an anchor tag?
 -->
 
@@ -47,43 +47,50 @@
             <label for="feed_sort-switch__best">Best</label><br />
         </div>
         <ol class="feed_quotes quotes-list list">
-            <li class="quotes-list_single_quote quote-card">
-                <div class="quote-card_quoted-person profile-tumbnail">
-                    <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                    <lablel class="profile-tumbnail_name">
+            <li class="quotes-list_single-quote quote-card">
+                <div class="quote-card_quoted-person profile-thumbnail">
+                    <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                    <lablel class="profile-thumbnail_name">
                         <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
                     </lablel>
                 </div>
-                <div class="quote-card_quote quote">
-                    <p class="quote_content">
-                        Sometimes I wish i was a bird, so I could just poop on random people.
-                    </p>
-                    <div class="quote_reactions reactions">
-                        <h3 class="reactions_header">Reactions</h3>
-                        <div class="reactions_like countable-button">
-                            <button class="countable-button_button button">Like</button>
-                            <label class="countable-button_count">4</label>
-                        </div>
-                        <div class="reactions_superb countable-button">
-                            <button class="countable-button_button button">Superb</button>
-                            <label class="countable-button_count">1</label>
-                        </div>
-                        <div class="reactions_comments comments">
-                            <h4 class="comments_header">Comments</h4>
-                            <label class="comments_count">1 comment</label>
-                            <!--HELP: I do not know how to call this using the BEM method :( So I am giving it a block name that is the same as the block_element.-->
-                            <ol class="comments_list comments-list list">
-                                <li class="comment-list_single-comment single-comment">
-                                    <div class="single-comment_commenter profile-tumbnail">
-                                        <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                                        <lablel class="profile-tumbnail_name">
-                                            <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
-                                        </lablel>
-                                    </div>
-                                    <p class="single-comment_content">Genious</p>
-                                </li>
-                            </ol>
-                        </div>
+                <p class="quote-card_content">
+                    Sometimes I wish i was a bird, so I could just poop on random people.
+                </p>
+                <time class="quote-card_timestamp" datetime="2022-11-18T14:54:39.929">1 month ago</time>
+                <div class="quote-card_reporter reporter">
+                    Uploaded by: <div class="reporter_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                        <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                        <lablel class="profile-thumbnail_name">
+                            <a href="https://www.google.com/search?q=Albert%20Einstein">Albert Einstein</a>
+                        </lablel>
+                    </div>
+                </div>
+                <div class="quote-card_reactions reactions">
+                    <h3 class="reactions_header">Reactions</h3>
+                    <div class="reactions_like countable-button">
+                        <button class="countable-button_button button">Like</button>
+                        <label class="countable-button_count">4</label>
+                    </div>
+                    <div class="reactions_superb countable-button">
+                        <button class="countable-button_button button">Superb</button>
+                        <label class="countable-button_count">1</label>
+                    </div>
+                    <div class="reactions_comments comments">
+                        <h4 class="comments_header">Comments</h4>
+                        <label class="comments_count">1 comment</label>
+                        <!--HELP: I do not know how to call this using the BEM method :( So I am giving it a block name that is the same as the block_element.-->
+                        <ol class="comments_list comments-list list">
+                            <li class="comment-list_single-comment single-comment">
+                                <div class="single-comment_commenter profile-thumbnail profile-thumbnail--compact">
+                                    <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                                    <lablel class="profile-thumbnail_name">
+                                        <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
+                                    </lablel>
+                                </div>
+                                <p class="single-comment_content">Genious</p>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </li>
