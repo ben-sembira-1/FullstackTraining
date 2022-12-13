@@ -22,52 +22,56 @@
 -->
 
 <body>
-    <h1>Iconic!</h1>
-    <img src="images/logo.png" alt="Website logo: speech bubble with apostrophes" />
-    <p>May the most bizarre, delusional and mad person win.</p>
-    <h2>Quotes Feed</h2>
-    <ol class="quotes-list list">
-        <li class="quotes-list_single_quote quote-card">
-            <div class="quote-card_quoted-person profile-tumbnail">
-                <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                <lablel class="profile-tumbnail_name">
-                    <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
-                </lablel>
-            </div>
-            <div class="quote-card_quote quote">
-                <p class="quote_content">
-                    Sometimes I wish i was a bird, so I could just poop on random people.
-                </p>
-                <div class="quote_reactions reactions">
-                    <h3 class="reactions_header">Reactions</h3>
-                    <div class="reactions_like countable-button">
-                        <button class="countable-button_button button">Like</button>
-                        <label class="countable-button_count">4</label>
-                    </div>
-                    <div class="reactions_superb countable-button">
-                        <button class="countable-button_button button">Superb</button>
-                        <label class="countable-button_count">1</label>
-                    </div>
-                    <div class="reactions_comments comments">
-                        <h4 class="comments_header">Comments</h4>
-                        <label class="comments_count">1 comment</label>
-                        <!--HELP: I do not know how to call this using the BEM method :( So I am giving it a block name that is the same as the block_element.-->
-                        <ol class="comments_list comments-list list">
-                            <li class="comment-list_single-comment single-comment">
-                                <div class="single-comment_commenter profile-tumbnail">
-                                    <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                                    <lablel class="profile-tumbnail_name">
-                                        <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
-                                    </lablel>
-                                </div>
-                                <p class="single-comment_content">Genious</p>
-                            </li>
-                        </ol>
+    <div class="top-row">
+        <h1>Iconic!</h1>
+        <img src="images/logo.png" alt="Website logo: speech bubble with apostrophes" />
+        <p>May the most bizarre, delusional and mad person win.</p>
+    </div>
+    <div class="feed">
+        <h2>Quotes Feed</h2>
+        <ol class="feed_quotes quotes-list list">
+            <li class="quotes-list_single_quote quote-card">
+                <div class="quote-card_quoted-person profile-tumbnail">
+                    <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
+                    <lablel class="profile-tumbnail_name">
+                        <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
+                    </lablel>
+                </div>
+                <div class="quote-card_quote quote">
+                    <p class="quote_content">
+                        Sometimes I wish i was a bird, so I could just poop on random people.
+                    </p>
+                    <div class="quote_reactions reactions">
+                        <h3 class="reactions_header">Reactions</h3>
+                        <div class="reactions_like countable-button">
+                            <button class="countable-button_button button">Like</button>
+                            <label class="countable-button_count">4</label>
+                        </div>
+                        <div class="reactions_superb countable-button">
+                            <button class="countable-button_button button">Superb</button>
+                            <label class="countable-button_count">1</label>
+                        </div>
+                        <div class="reactions_comments comments">
+                            <h4 class="comments_header">Comments</h4>
+                            <label class="comments_count">1 comment</label>
+                            <!--HELP: I do not know how to call this using the BEM method :( So I am giving it a block name that is the same as the block_element.-->
+                            <ol class="comments_list comments-list list">
+                                <li class="comment-list_single-comment single-comment">
+                                    <div class="single-comment_commenter profile-tumbnail">
+                                        <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
+                                        <lablel class="profile-tumbnail_name">
+                                            <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
+                                        </lablel>
+                                    </div>
+                                    <p class="single-comment_content">Genious</p>
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
-    </ol>
+            </li>
+        </ol>
+    </div>
 </body>
 
 </html>
