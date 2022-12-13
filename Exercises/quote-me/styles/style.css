@@ -9,13 +9,6 @@ h1 {
     text-align: center;
 }
 
-.top-row_header {
-    margin: 0;
-    padding: 20px 0;
-    color: #9538B7;
-    text-shadow: 3px 3px 5px #9538B7;
-}
-
 p,
 li {
     font-size: 16;
@@ -30,14 +23,37 @@ body {
     border: 1px solid black;
 }
 
-.top-row_logo {
-    display: block;
-    margin: 0 auto;
+.button {
+    background-color: #9538B7;
+    color: white;
+    border-radius: 20%;
+    border-style: dotted;
+    padding: 5px;
 }
 
 .logo {
     background-color: #e3e3e3;
     padding: 10px;
     border-radius: 30%;
-    text-shadow: 30px 30px 5px #9538B7;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+}
+
+.top-row * {
+    display: inline;
+    margin: 0 auto;
+}
+
+.top-row_header {
+    margin: 0 auto;
+    padding: 20px 0;
+    color: #9538B7;
+    text-shadow: 3px 3px 5px #9538B7;
+}
+
+.top-row_new-quote {
+    font-size: 30px;
 }
