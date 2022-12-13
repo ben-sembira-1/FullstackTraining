@@ -15,7 +15,10 @@
         word, and hyphen(-) seperated words are mostly refered as multiple words.
         Why is this? I am strugling to find a good solution, I have to abuse
         the BEM convention or the web convention.
-    2. How am I going to replacate those structures??
+    2.  How am I going to replacate those structures??
+    3.  I want to keep the structure correct, and for all the links in the document to be anchor(<a>) tags.
+        But how can I do it with images? Am I doing it correct inthe profile-tumbnail objects?
+        Or should it be a label contained inside an anchor tag?
 -->
 
 <body>
@@ -27,7 +30,9 @@
         <li class="quotes-list_single_quote quote-card">
             <div class="quote-card_quoted-person profile-tumbnail">
                 <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                <lablel class="profile-tumbnail_name">Israel Israeli</lablel>
+                <lablel class="profile-tumbnail_name">
+                    <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
+                </lablel>
             </div>
             <div class="quote-card_quote quote">
                 <p class="quote_content">
@@ -51,7 +56,9 @@
                             <li class="comment-list_single-comment single-comment">
                                 <div class="single-comment_commenter profile-tumbnail">
                                     <img class="profile-tumbnail_image" src="images/unkown-person-icon.png" />
-                                    <lablel class="profile-tumbnail_name">Dohn Joe</lablel>
+                                    <lablel class="profile-tumbnail_name">
+                                        <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
+                                    </lablel>
                                 </div>
                                 <p class="single-comment_content">Genious</p>
                             </li>
