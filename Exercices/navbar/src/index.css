@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --background-color: #0a2405;
+  --background-accent: #123f09;
+  --text-color: #e2e2e2;
+  --nav-height: 50px;
+  --border: 1px solid var(--background-accent);
+  --border-radius: 6px;
+  --nav-transition-spped: 400ms;
+}
