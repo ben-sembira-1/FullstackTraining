@@ -21,20 +21,41 @@ export function DropDownMenu(props) {
         );
     }
 
-    return (
-        <div className='drop-down-menu'>
+    function TransitionableSubMenu(props) {
+        return (
             <CSSTransition
-                in={activeMenu === 'main-menu'}
+                in={activeMenu === props.menuName}
                 unmountOnExit
-                timeout={500}
-                classNames='menu-primary'
+                timeout={props.timeout}
+                classNames={props.primary ? 'menu-primary' : 'menu-secondary'}
             >
                 <div className='menu'>
-                    <h1>Main menu</h1>
-                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} goToMenu='secondary-menu-1'>go to 1</DropDownLinkItem>
-                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} goToMenu='secondary-menu-2'>go to 2</DropDownLinkItem>
+                    <h1>{props.menuLabel}</h1>
+                    {props.transitions.map(
+                        (transition, index) => <DropDownLinkItem leftIcon={transition.icon} rightIcon={props.primary ? <RightChevron /> : <LeftChevron />} goToMenu={transition.goToMenu}>{transition.label}</DropDownLinkItem>
+                    )}
                 </div>
             </CSSTransition>
+        );
+    }
+
+    let transitionTimout = 200;
+
+    return (
+        <div className='drop-down-menu'>
+            <TransitionableSubMenu
+                menuName='main-menu'
+                timeout={transitionTimout}
+                primary
+                menuLabel='Main Menu'
+                transitions={
+                    [
+                        { 'icon': <SettingsIcon />, 'goToMenu': 'secondary-menu-1', 'label': 'Go to 1' },
+                        { 'icon': <SettingsIcon />, 'goToMenu': 'secondary-menu-2', 'label': 'Go to 2' }
+                    ]
+                }
+            />
+
             <CSSTransition
                 in={activeMenu === 'secondary-menu-1'}
                 unmountOnExit
