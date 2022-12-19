@@ -60,13 +60,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-style: solid; */
 }
 
 .item-button {
   background: none;
   border: none;
-  border-radius: var(--border-radius);
 
   display: flex;
   justify-content: center;
