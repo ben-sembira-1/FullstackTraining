@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group'
 
 import { ReactComponent as RightChevron } from './icons/chevron-right.svg';
+import { ReactComponent as LeftChevron } from './icons/chevron-left.svg';
 import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg';
 
 export function DropDownMenu(props) {
@@ -42,7 +43,7 @@ export function DropDownMenu(props) {
             >
                 <div className='menu'>
                     <h2>Menu 1</h2>
-                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} goToMenu='main-menu'>back</DropDownLinkItem>
+                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} goToMenu='main-menu'>back</DropDownLinkItem>
                     <DropDownLinkItem leftIcon={<SettingsIcon />} >Dont press this</DropDownLinkItem>
                 </div>
             </CSSTransition>
@@ -54,7 +55,7 @@ export function DropDownMenu(props) {
             >
                 <div className='menu'>
                     <h2>Menu 2</h2>
-                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} goToMenu='main-menu'>back</DropDownLinkItem>
+                    <DropDownLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} goToMenu='main-menu'>back</DropDownLinkItem>
                     <DropDownLinkItem leftIcon={<SettingsIcon />} >Good option</DropDownLinkItem>
                     <DropDownLinkItem leftIcon={<SettingsIcon />} >Another good option</DropDownLinkItem>
                 </div>
