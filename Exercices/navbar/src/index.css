@@ -64,7 +64,7 @@ a {
 }
 
 .item-button {
-  
+
 
   display: flex;
   justify-content: center;
@@ -99,7 +99,7 @@ a {
 }
 
 .drop-down-menu {
-  position:absolute;
+  position: absolute;
   top: calc(var(--nav-size) + var(--border-size));
   transform: translateX(-45%);
   background-color: var(--button-color);
@@ -116,7 +116,7 @@ a {
   overflow: hidden;
 }
 
-.drop-down-menu > *:hover {
+.drop-down-menu>*:hover {
   cursor: pointer;
 }
 
@@ -132,4 +132,47 @@ a {
 
 .drop-down-item-right-icon {
   margin-left: auto;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-primary-enter {
+  transform: translateX(-100%);
+}
+
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+.menu-primary-exit {
+  position: absolute;
+  transform: translateX(0%);
+}
+
+.menu-primary-exit-active {
+  transform: translateX(-100%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+
+.menu-secondary-enter {
+  transform: translateX(100%);
+}
+
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+.menu-secondary-exit {
+  position: absolute;
+  transform: translateX(0);
+}
+
+.menu-secondary-exit-active {
+  transform: translateX(100%);
+  transition: all var(--nav-transition-spped) ease;
 }
