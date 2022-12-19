@@ -18,7 +18,7 @@ code {
   --button-color: #1c610e;
   --mark-transitions-speed: 100ms;
   --text-color: #e2e2e2;
-  --link-color: #965cf3;
+  --link-color: #c9c9c9;
   --nav-size: 50px;
   --border-size: 2px;
   --border: var(--border-size) solid var(--background-accent);
@@ -114,6 +114,7 @@ a {
 
   width: 300px;
   overflow: hidden;
+  transition: height var(--nav-transition-spped) ease;
 }
 
 .drop-down-menu>*:hover {
