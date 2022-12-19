@@ -10,10 +10,10 @@ export function DropDownMenu(props) {
 
 export function DropDownLinkItem(props) {
     return (
-        <div href={props.href} className='drop-down-link-item button'>
-            <span className='drop-down-item-left-icon'>{props.leftIcon}</span>
+        <a href={props.href} className='drop-down-link-item button'>
+            <span className='item-button'>{props.leftIcon}</span>
             {props.children}
-            <span className='drop-down-item-right-icon'>{props.rightIcon}</span>
-        </div>
+            <span className='item-button drop-down-item-right-icon'>{props.rightIcon}</span>
+        </a>
     );
 }

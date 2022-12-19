@@ -12,12 +12,10 @@ function App() {
       <Navitem icon={<CreateIcon />} />
       <Navitem icon={<SettingsIcon />}>
         <DropDownMenu>
-          <DropDownLinkItem leftIcon={<CreateIcon/>}>option-1</DropDownLinkItem>
-          <DropDownLinkItem>option-2</DropDownLinkItem>
+          <DropDownLinkItem leftIcon={<SettingsIcon />} href='#'>option-1</DropDownLinkItem>
+          <DropDownLinkItem leftIcon={<SettingsIcon />} href='#'>option-2</DropDownLinkItem>
         </DropDownMenu>
       </Navitem>
-      <Navitem icon={<AccountIcon />} />
-      <Navitem icon={<CreateIcon />} />
     </Navbar>
   );
 }
