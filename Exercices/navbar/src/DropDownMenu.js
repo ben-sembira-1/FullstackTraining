@@ -18,6 +18,9 @@ function DropDownLinkItem(props) {
 
 function TransitionableSubMenu(props) {
     const defaultTimeout = 500;
+    // HELP:    Is this state propegation a good thing to do?
+    //          It feels to me that very fast this aproach can end in lots of states being propegated
+    //          through lots of layers of components.
     const [activeMenu, setActiveMenu] = props.activeMenuState;
     const [menuHeight, setMenuHeight] = props.menuHeightState;
 
@@ -37,6 +40,7 @@ function TransitionableSubMenu(props) {
             <div className='menu'>
                 <h1>{props.menuLabel}</h1>
                 {
+                    // HELP: Why do I need a key? If I am not putting one, there is a warning.
                     props.transitions.map(
                         (transition, index) => <DropDownLinkItem key={index} leftIcon={transition.icon || <SettingsIcon />} rightIcon={props.primary ? <RightChevron /> : <LeftChevron />} onClick={() => setActiveMenu(transition.goToMenu)}>{transition.label}</DropDownLinkItem>
                     )
@@ -56,6 +60,8 @@ export function DropDownMenu(props) {
         const menuComputedStyle = getComputedStyle(dropDownMenu.current)
         setMenuHeight(menuComputedStyle.height);
     }, [])
+    // HELP: I failed to make the drop down list open with a transition (as if it was with height 0 and then opend).
+    // HELP: I failed to create a closure that creates a TransitionableSubMenu with the 2 states.
     return (
         <div ref={dropDownMenu} className='drop-down-menu' style={{ height: menuHeight }}>
             <TransitionableSubMenu
@@ -100,7 +106,6 @@ export function DropDownMenu(props) {
                     ]
                 }
             >
-
                 <DropDownLinkItem>Regular Option</DropDownLinkItem>
                 <DropDownLinkItem>Regular Option</DropDownLinkItem>
                 <DropDownLinkItem>Regular Option</DropDownLinkItem>
