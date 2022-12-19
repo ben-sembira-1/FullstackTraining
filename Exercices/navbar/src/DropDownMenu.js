@@ -24,34 +24,33 @@ export function DropDownMenu(props) {
     function TransitionableSubMenu(props) {
         return (
             <CSSTransition
-                in={activeMenu === props.menuName}
+                in={activeMenu === props.menuId}
                 unmountOnExit
-                timeout={props.timeout}
+                timeout={props.timeout || 500}
                 classNames={props.primary ? 'menu-primary' : 'menu-secondary'}
             >
                 <div className='menu'>
                     <h1>{props.menuLabel}</h1>
-                    {props.transitions.map(
-                        (transition, index) => <DropDownLinkItem leftIcon={transition.icon} rightIcon={props.primary ? <RightChevron /> : <LeftChevron />} goToMenu={transition.goToMenu}>{transition.label}</DropDownLinkItem>
-                    )}
+                    {
+                        props.transitions.map(
+                            (transition, index) => <DropDownLinkItem leftIcon={transition.icon || <SettingsIcon />} rightIcon={props.primary ? <RightChevron /> : <LeftChevron />} goToMenu={transition.goToMenu}>{transition.label}</DropDownLinkItem>
+                        )
+                    }
                 </div>
             </CSSTransition>
         );
     }
 
-    let transitionTimout = 200;
-
     return (
         <div className='drop-down-menu'>
             <TransitionableSubMenu
-                menuName='main-menu'
-                timeout={transitionTimout}
+                menuId='main-menu'
                 primary
                 menuLabel='Main Menu'
                 transitions={
                     [
-                        { 'icon': <SettingsIcon />, 'goToMenu': 'secondary-menu-1', 'label': 'Go to 1' },
-                        { 'icon': <SettingsIcon />, 'goToMenu': 'secondary-menu-2', 'label': 'Go to 2' }
+                        { 'goToMenu': 'secondary-menu-1', 'label': 'Go to 1' },
+                        { 'goToMenu': 'secondary-menu-2', 'label': 'Go to 2' }
                     ]
                 }
             />
