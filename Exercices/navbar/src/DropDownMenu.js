@@ -8,9 +8,9 @@ import { ReactComponent as LeftChevron } from './icons/chevron-left.svg'
 import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg'
 
 function DropDownLinkItem
-({ href, onClick, leftIcon, rightIcon, children }) {
+({ onClick, leftIcon, rightIcon, children }) {
   return (
-    <a href={href} className="drop-down-link-item button" onClick={onClick}>
+    <a className="drop-down-link-item button" onClick={onClick}>
       <span className="item-button">{leftIcon}</span>
       {children}
       <span className="item-button drop-down-item-right-icon">{rightIcon}</span>
@@ -18,7 +18,6 @@ function DropDownLinkItem
   )
 }
 DropDownLinkItem.propTypes = {
-  href: PropTypes.string,
   onClick: PropTypes.func,
   leftIcon: PropTypes.shape('svg'),
   rightIcon: PropTypes.shape('svg'),
