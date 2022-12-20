@@ -68,11 +68,17 @@ export function FilterableProductTable({ products }) {
             <SearchBar>
                 <TextInput
                     placeholder="Search..."
-                    onChange={setSearchValue}
+                    onChange={(value) => {
+                        console.log("text input updated with: " + value);
+                        setSearchValue(value);
+                    }}
                 />
                 <ToggleInput
                     label="Only show products in stock"
-                    onChange={setOnlyStocked}
+                    onToggle={(value) => {
+                        console.log("toggle input updated with: " + value);
+                        setOnlyStocked(value);
+                    }}
                 />
             </SearchBar>
             <ProductsTable products={categorizedData} />

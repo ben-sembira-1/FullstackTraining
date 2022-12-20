@@ -1,22 +1,25 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 
-function Input({ onChange, placeholder, label, type }) {
-    const inputRef = useRef(null);
+function Input({ onClick, placeholder, label, type }) {
+    const ref = useRef(null);
+    const id = useId();
     useEffect(
         () => {
-            inputRef.current.addEventListener('change', () => {
-                onChange(inputRef.value)
+            console.log("useing the effect")
+            ref.current.addEventListener('click', () => {
+                console.log("Firing the onClick event listener");
+                onClick(ref.current)
             })
         },
-        [inputRef, onChange]
+        []
     );
     return (
         <div>
-            <input ref={inputRef} type={type} placeholder={placeholder || ""} />
+            <input ref={ref} id={id} type={type} placeholder={placeholder || ""} />
             {label && (
                 <>
                     {' '}
-                    <label for={inputRef}>
+                    <label for={id}>
                         {label}
                     </label>
                 </>
@@ -27,14 +30,14 @@ function Input({ onChange, placeholder, label, type }) {
 
 export function TextInput({ onChange, placeholder }) {
     return (
-        <Input onChange={onChange} placeholder={placeholder} type="text" />
+        <Input onClick={(input_el) => onChange(input_el.value)} placeholder={placeholder} type="text" />
     );
 }
 
 
 
-export function ToggleInput({ onChange, label }) {
+export function ToggleInput({ onToggle, label }) {
     return (
-        <Input onChange={onChange} label={label} type="checkbox" />
+        <Input onClick={(input_el) => onToggle(input_el.checked)} label={label} type="checkbox" />
     );
 }
