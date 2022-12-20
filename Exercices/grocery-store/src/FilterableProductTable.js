@@ -17,24 +17,28 @@ function filterProducts(products, filters) {
     );
 }
 
+const sortProductsByCategory = (products) => [...products].sort(
+    (product1, product2) => product1.category.localCompare(product2.category)
+)
+
 function categorizeProducts(products) {
-    return [
-        {
-            name: "Fruits",
-            products: [
-                { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
-                { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
-            ]
-        },
-        {
-            name: "Vegetables",
-            products: [
-                { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
-                { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
-                { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
-            ]
+    const newCategorySet = (categoryName) => ({ name: categoryName, products: [] });
+    const sortedProducts = sortProductsByCategory(products);
+    
+    let categorizedProducts = [];
+    let lastCategory = null;
+    let currentCategorySet = null;
+    sortedProducts.forEach(
+        (product) => {
+            if (product.category !== lastCategory) {
+                currentCategorySet && categorizedProducts.push(categorizedProducts);
+                currentCategorySet = newCategorySet(product.category);
+            }
+
+            currentCategorySet.products.push(product)
         }
-    ];
+    );
+    return categorizedProducts;
 }
 
 export function FilterableProductTable({ products }) {

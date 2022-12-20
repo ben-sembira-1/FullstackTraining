@@ -1,13 +1,7 @@
-export function SearchBar({ filters }) {
+export function SearchBar({ children }) {
     return (
         <form>
-            <div>
-                <input type="text" placeholder="Search..." />
-            </div>
-            <div>
-                <input type="checkbox" />
-                <label>Only show products in stock</label>
-            </div>
+            {children}
         </form>
     );
 }
