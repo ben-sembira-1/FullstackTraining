@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --border-size: 1px;
+  --border-color: black;
+}
+
+.products_list table,
+.products_list th,
+.products_list tr,
+.products_list td {
+  border: var(--border-size) solid var(--border-color);
+  border-collapse: collapse;
+}
+
+.product_row--out_of_stock {
+  color: red;
+}
