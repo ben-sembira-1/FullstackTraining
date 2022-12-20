@@ -72,8 +72,8 @@ export function DropDownMenu(props) {
                 menuLabel='Main Menu'
                 transitions={
                     [
-                        { 'goToMenu': 'secondary-menu-1', 'label': 'Go to 1' },
-                        { 'goToMenu': 'secondary-menu-2', 'label': 'Go to 2' }
+                        { goToMenu: 'secondary-menu-1', label: 'Go to 1' },
+                        { goToMenu: 'secondary-menu-2', label: 'Go to 2' }
                     ]
                 }
             />
@@ -84,7 +84,7 @@ export function DropDownMenu(props) {
                 menuLabel='Menu 1'
                 transitions={
                     [
-                        { 'goToMenu': 'main-menu', 'label': 'Back' }
+                        { goToMenu: 'main-menu', label: 'Back' }
                     ]
                 }
             >
@@ -102,7 +102,7 @@ export function DropDownMenu(props) {
                 menuLabel='Menu 2'
                 transitions={
                     [
-                        { 'goToMenu': 'main-menu', 'label': 'Back' }
+                        { goToMenu: 'main-menu', label: 'Back' }
                     ]
                 }
             >
