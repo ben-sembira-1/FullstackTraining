@@ -1,3 +1,5 @@
+import { ProductsCategoryTableSection } from "./ProductsCategoryTableSection";
+
 export function ProductsTable({ products }) {
     return (
         <table>
