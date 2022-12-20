@@ -1,7 +1,7 @@
 export function SearchBar({ children }) {
     return (
-        <form>
+        <div>
             {children}
-        </form>
+        </div>
     );
 }
