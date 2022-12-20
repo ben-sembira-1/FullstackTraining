@@ -8,7 +8,7 @@ export function ProductsCategoryTableSection({ name, products }) {
             </tr>
             {
                 products.map(
-                    (product, index) => <ProductTableRow product={product} />
+                    (product, index) => <ProductTableRow key={index} product={product} />
                 )
             }
         </>
