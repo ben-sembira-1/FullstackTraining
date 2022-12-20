@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react';
 
 
 
-function filterProducts(products, filters) {
+function reduceFilters(products, filters) {
     function passedAllFilters(product) {
         return filters.reduce(
             (passedUntilHere, currentFilter) => passedUntilHere && currentFilter(product)
@@ -19,13 +19,13 @@ function filterProducts(products, filters) {
     return filterdProducts;
 }
 
-const sortProductsByCategory = (products) => [...products].sort(
+const sortByCategory = (products) => [...products].sort(
     (product1, product2) => product1.category.localeCompare(product2.category)
 )
 
-function categorizeProducts(products) {
+function categorize(products) {
     const newCategorySet = (categoryName) => ({ name: categoryName, products: [] });
-    const sortedProducts = sortProductsByCategory(products);
+    const sortedProducts = sortByCategory(products);
     console.log("Sorted products: " + sortedProducts);
 
     let categorizedProducts = [];
@@ -33,9 +33,10 @@ function categorizeProducts(products) {
     let currentCategorySet = null;
     sortedProducts.forEach(
         (product) => {
+            console.log(categorizedProducts, lastCategory, currentCategorySet);
             if (product.category !== lastCategory) {
-                currentCategorySet && categorizedProducts.push(currentCategorySet);
                 currentCategorySet = newCategorySet(product.category);
+                categorizedProducts.push(currentCategorySet);
                 lastCategory = product.category;
             }
 
@@ -50,19 +51,17 @@ export function FilterableProductTable({ products }) {
     const [searchValue, setSearchValue] = useState("");
     const [onlyStocked, setOnlyStocked] = useState(false);
 
-
     const searchFilter = useCallback(
         (product) => product.name.includes(searchValue),
         [searchValue]
     )
-
     const stockedFilter = useCallback(
         (product) => !onlyStocked || product.stocked,
         [onlyStocked]
     )
 
-    const filterdProducts = filterProducts(products, [searchFilter, stockedFilter]);
-    const categorizedData = categorizeProducts(filterdProducts);
+    const filterdProducts = reduceFilters(products, [searchFilter, stockedFilter]);
+    const categorizedData = categorize(filterdProducts);
 
     return (
         <>
