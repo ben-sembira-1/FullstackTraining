@@ -7,37 +7,42 @@ import { useCallback, useState } from 'react';
 
 function filterProducts(products, filters) {
     function passedAllFilters(product) {
-        filters.reduce(
+        return filters.reduce(
             (passedUntilHere, currentFilter) => passedUntilHere && currentFilter(product)
         );
     }
 
-    return products.filter(
+    const filterdProducts = [...products].filter(
         (product) => passedAllFilters(product)
     );
+    console.log("Filtered products: " + filterdProducts)
+    return filterdProducts;
 }
 
 const sortProductsByCategory = (products) => [...products].sort(
-    (product1, product2) => product1.category.localCompare(product2.category)
+    (product1, product2) => product1.category.localeCompare(product2.category)
 )
 
 function categorizeProducts(products) {
     const newCategorySet = (categoryName) => ({ name: categoryName, products: [] });
     const sortedProducts = sortProductsByCategory(products);
-    
+    console.log("Sorted products: " + sortedProducts);
+
     let categorizedProducts = [];
     let lastCategory = null;
     let currentCategorySet = null;
     sortedProducts.forEach(
         (product) => {
             if (product.category !== lastCategory) {
-                currentCategorySet && categorizedProducts.push(categorizedProducts);
+                currentCategorySet && categorizedProducts.push(currentCategorySet);
                 currentCategorySet = newCategorySet(product.category);
+                lastCategory = product.category;
             }
 
             currentCategorySet.products.push(product)
         }
     );
+    console.log("Categorized products: " + categorizedProducts);
     return categorizedProducts;
 }
 

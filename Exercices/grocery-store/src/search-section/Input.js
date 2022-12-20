@@ -1,15 +1,15 @@
-import { useEffect, usingRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 function Input({ onChange, placeholder, label, type }) {
-    const inputRef = usingRef(null);
+    const inputRef = useRef(null);
     useEffect(
         () => {
-            inputRef.addEventListener('change', () => {
+            inputRef.current.addEventListener('change', () => {
                 onChange(inputRef.value)
             })
         },
         [inputRef, onChange]
-    )
+    );
     return (
         <div>
             <input ref={inputRef} type={type} placeholder={placeholder || ""} />
@@ -35,6 +35,6 @@ export function TextInput({ onChange, placeholder }) {
 
 export function ToggleInput({ onChange, label }) {
     return (
-        <Input onChange={onChange} label={label} type="text" />
+        <Input onChange={onChange} label={label} type="checkbox" />
     );
 }
