@@ -1,11 +1,10 @@
-import { useId, useRef } from 'react';
+import { useId } from 'react';
 
 export function TextInput({ textState, placeholder }) {
     const [text, setText] = textState;
-    const ref = useRef(null);
     return (
         <div>
-            <input ref={ref} type="text" placeholder={placeholder || ""} onChange={() => setText(ref.current.value)} value={text} />
+            <input type="text" placeholder={placeholder || ""} onChange={(e) => setText(e.target.value)} value={text} />
         </div>
     );
 }
@@ -13,12 +12,11 @@ export function TextInput({ textState, placeholder }) {
 
 
 export function ToggleInput({ checkedState, label }) {
-    const [, setChecked] = checkedState;
-    const ref = useRef(null);
+    const [checked, setChecked] = checkedState;
     const id = useId();
     return (
         <div>
-            <input ref={ref} id={id} type="checkbox" onChange={() => setChecked(ref.current.checked)} />
+            <input id={id} type="checkbox" onChange={(e) => setChecked(e.target.checked)} checked={checked} />
             {' '}
             <label for={id}>
                 {label}
