@@ -6,7 +6,7 @@ function Input({ onClick, placeholder, label, type }) {
     useEffect(
         () => {
             console.log("useing the effect")
-            ref.current.addEventListener('click', () => {
+            ref.current.addEventListener('change', () => {
                 console.log("Firing the onClick event listener");
                 onClick(ref.current)
             })
