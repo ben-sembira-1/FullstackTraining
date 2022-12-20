@@ -1,3 +1,5 @@
+import { ProductTableRow } from "./ProductTableRow";
+
 export function ProductsCategoryTableSection({ name, products }) {
     return (
         <>
