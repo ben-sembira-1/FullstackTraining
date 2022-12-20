@@ -1,7 +1,9 @@
+import { FilterableProductTable } from './FilterableProductTable'
+
 
 function App() {
   return (
-    <FilterableProductTable/>
+    <FilterableProductTable />
   );
 }
 
