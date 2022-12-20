@@ -1,6 +1,6 @@
 export function SearchBar({ filters }) {
     return (
-        <>
+        <form>
             <div>
                 <input type="text" placeholder="Search..." />
             </div>
@@ -8,6 +8,6 @@ export function SearchBar({ filters }) {
                 <input type="checkbox" />
                 <label>Only show products in stock</label>
             </div>
-        </>
+        </form>
     );
 }
