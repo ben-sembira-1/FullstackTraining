@@ -1,4 +1,4 @@
-name: pre-commit
+name: pre-commit-navbar
 
 on: [pull_request, push]
 
@@ -8,4 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
+      - uses: actions/setup-node@v3
+      - name: install navbar
+        working-directory: ./Exercices/navbar
+        run: npm install
       - uses: pre-commit/action@v3.0.0
