@@ -1,13 +1,15 @@
-export function ProductsTable({products}) {
+export function ProductsTable({ products }) {
     return (
-        <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
             {
                 products.map(
-                    (category, index) => {
-                        <ProductsCategorySection key={index} name={category.name} products={category.products} />
-                    }
+                    (category, index) => <ProductsCategoryTableSection key={index} name={category.name} products={category.products} />
                 )
             }
-        </div>
+        </table>
     );
 }

@@ -49,7 +49,7 @@ export function FilterableProductTable({ groceries }) {
     return (
         <>
             <SearchBar />
-            <ProductsTable products={categorizedData}/>
+            <ProductsTable products={categorizedData} />
         </>
     );
 }
