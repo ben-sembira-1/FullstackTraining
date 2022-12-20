@@ -13,7 +13,7 @@ export function TextInput({ textState, placeholder }) {
 
 
 export function ToggleInput({ checkedState, label }) {
-    const [checked, setChecked] = checkedState;
+    const [, setChecked] = checkedState;
     const ref = useRef(null);
     const id = useId();
     return (

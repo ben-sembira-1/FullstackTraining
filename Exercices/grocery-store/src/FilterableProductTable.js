@@ -1,7 +1,7 @@
 import { SearchBar } from './search-section/SearchBar';
 import { TextInput, ToggleInput } from './search-section/Input';
 import { ProductsTable } from './ProductsTable';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 
 
