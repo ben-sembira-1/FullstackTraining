@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { DropDownMenu } from './DropDownMenu'
 
-export function Navbar({ children }) {
+export function Navbar ({ children }) {
   return (
     <nav className="navbar">
       <ul className="navbar-nav">{children}</ul>
     </nav>
-  );
+  )
+}
+Navbar.propTypes = {
+  children: PropTypes.arrayOf(Navitem)
 }
 
-export function Navitem({ icon, children }) {
-  const [open, setOpen] = useState(false);
+export function Navitem ({ icon, children }) {
+  const [open, setOpen] = useState(false)
   return (
     <li className="nav-item">
       <button className="item-button button" onClick={() => setOpen(!open)}>
@@ -17,5 +22,9 @@ export function Navitem({ icon, children }) {
       </button>
       {open && children}
     </li>
-  );
+  )
+}
+Navitem.propTypes = {
+  icon: PropTypes.shape('svg'),
+  children: PropTypes.arrayOf(DropDownMenu)
 }
