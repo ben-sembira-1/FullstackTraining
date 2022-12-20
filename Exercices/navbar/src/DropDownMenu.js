@@ -6,23 +6,23 @@ import { ReactComponent as RightChevron } from './icons/chevron-right.svg';
 import { ReactComponent as LeftChevron } from './icons/chevron-left.svg';
 import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg';
 
-function DropDownLinkItem(props) {
+function DropDownLinkItem({ href, onClick, leftIcon, rightIcon, children }) {
     return (
-        <a href={props.href} className='drop-down-link-item button' onClick={props.onClick}>
-            <span className='item-button'>{props.leftIcon}</span>
-            {props.children}
-            <span className='item-button drop-down-item-right-icon'>{props.rightIcon}</span>
+        <a href={href} className='drop-down-link-item button' onClick={onClick}>
+            <span className='item-button'>{leftIcon}</span>
+            {children}
+            <span className='item-button drop-down-item-right-icon'>{rightIcon}</span>
         </a>
     );
 }
 
-function TransitionableSubMenu(props) {
+function TransitionableSubMenu({ activeMenuState, menuHeightState, menuId, timeout, primary, menuLabel, transitions, children }) {
     const defaultTimeout = 500;
     // HELP:    Is this state propegation a good thing to do?
     //          It feels to me that very fast this aproach can end in lots of states being propegated
     //          through lots of layers of components.
-    const [activeMenu, setActiveMenu] = props.activeMenuState;
-    const [menuHeight, setMenuHeight] = props.menuHeightState;
+    const [activeMenu, setActiveMenu] = activeMenuState;
+    const [, setMenuHeight] = menuHeightState;
 
     function calculateHeight(htmlElement) {
         setMenuHeight(htmlElement.offsetHeight);
@@ -30,36 +30,35 @@ function TransitionableSubMenu(props) {
 
     return (
         <CSSTransition
-            in={activeMenu === props.menuId}
+            in={activeMenu === menuId}
             unmountOnExit
-            timeout={props.timeout || defaultTimeout}
-            classNames={props.primary ? 'menu-primary' : 'menu-secondary'}
+            timeout={timeout || defaultTimeout}
+            classNames={primary ? 'menu-primary' : 'menu-secondary'}
             onEnter={calculateHeight}
-            onEntered={calculateHeight}
         >
             <div className='menu'>
-                <h1>{props.menuLabel}</h1>
+                <h1>{menuLabel}</h1>
                 {
-                    // HELP: Why do I need a key? If I am not putting one, there is a warning.
-                    props.transitions.map(
-                        (transition, index) => <DropDownLinkItem key={index} leftIcon={transition.icon || <SettingsIcon />} rightIcon={props.primary ? <RightChevron /> : <LeftChevron />} onClick={() => setActiveMenu(transition.goToMenu)}>{transition.label}</DropDownLinkItem>
+                    transitions.map(
+                        (transition, index) => <DropDownLinkItem key={index} leftIcon={transition.icon || <SettingsIcon />} rightIcon={primary ? <RightChevron /> : <LeftChevron />} onClick={() => setActiveMenu(transition.goToMenu)}>{transition.label}</DropDownLinkItem>
                     )
                 }
-                {props.children}
+                {children}
             </div>
         </CSSTransition>
     );
 }
 
-export function DropDownMenu(props) {
+export function DropDownMenu() {
     const activeMenuState = useState('main-menu');
     const menuHeightState = useState(null);
     const dropDownMenu = useRef(null);
     const [menuHeight, setMenuHeight] = menuHeightState;
+    // This useEffect is for the first transition
     useEffect(() => {
         const menuComputedStyle = getComputedStyle(dropDownMenu.current)
         setMenuHeight(menuComputedStyle.height);
-    }, [])
+    }, [setMenuHeight])
     // HELP: I failed to make the drop down list open with a transition (as if it was with height 0 and then opend).
     // HELP: I failed to create a closure that creates a TransitionableSubMenu with the 2 states.
     return (
