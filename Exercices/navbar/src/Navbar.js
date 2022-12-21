@@ -25,6 +25,6 @@ export function Navitem ({ icon, children }) {
   )
 }
 Navitem.propTypes = {
-  icon: PropTypes.shape('svg'),
-  children: PropTypes.arrayOf(DropDownMenu)
+  icon: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.objectOf(DropDownMenu), PropTypes.arrayOf(PropTypes.objectOf(DropDownMenu))])
 }
