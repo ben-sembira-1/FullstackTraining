@@ -24,28 +24,16 @@ MenuLinkItem.propTypes = {
   children: PropTypes.array.isRequired
 }
 
-function Menu ({ header, children }) {
-  return (
-    <div className="menu">
-      <h2>{header}</h2>
-      {children}
-    </div>
-  )
-}
-Menu.propTypes = {
-  header: PropTypes.string,
-  children: PropTypes.array
-}
-
 export function DropDownMenu
 () {
+  const UNMOUNT_TIMEOUT = 500
+
   const [activeMenu, setActiveMenu] = useState(null)
   const [menuHeight, setMenuHeight] = useState(null)
   const dropDownMenu = useRef(null)
 
-  const unmountTimeout = 500
   const setHeightBeforeRender = (htmlElement) => {
-    console.log('Setting height to ' + htmlElement.offsetHeight)
+    console.log('Setting height to: ' + htmlElement.offsetHeight)
     return setMenuHeight(htmlElement.offsetHeight)
   }
 
@@ -96,7 +84,7 @@ export function DropDownMenu
       <CSSTransition
         in={activeMenu === 'main-menu'}
         unmountOnExit
-        timeout={unmountTimeout}
+        timeout={UNMOUNT_TIMEOUT}
         classNames={'menu-primary'}
         onEnter={setHeightBeforeRender}
       >
@@ -108,7 +96,7 @@ export function DropDownMenu
       <CSSTransition
         in={activeMenu === 'secondary-menu-1'}
         unmountOnExit
-        timeout={unmountTimeout}
+        timeout={UNMOUNT_TIMEOUT}
         classNames={'menu-secondary'}
         onEnter={setHeightBeforeRender}
       >
@@ -119,7 +107,7 @@ export function DropDownMenu
       <CSSTransition
         in={activeMenu === 'secondary-menu-2'}
         unmountOnExit
-        timeout={unmountTimeout}
+        timeout={UNMOUNT_TIMEOUT}
         classNames={'menu-secondary'}
         onEnter={setHeightBeforeRender}
       >
