@@ -85,7 +85,7 @@ a {
   border-radius: 50%;
 }
 
-.item-button > * {
+.item-button>* {
   fill: var(--text-color);
 }
 
@@ -125,7 +125,7 @@ a {
   transition: height var(--nav-transition-spped) ease;
 }
 
-.drop-down-menu > *:hover {
+.drop-down-menu>*:hover {
   cursor: pointer;
 }
 
