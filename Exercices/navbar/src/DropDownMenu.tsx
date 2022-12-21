@@ -2,9 +2,9 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
-import RightChevron from './icons/chevron-right.svg'
-import LeftChevron from './icons/chevron-left.svg'
-import SettingsIcon from './icons/cog-outline.svg'
+import { ReactComponent as RightChevron } from './icons/chevron-right.svg'
+import { ReactComponent as LeftChevron } from './icons/chevron-left.svg'
+import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg'
 
 interface MenuLinkItemProps {
   onClick?: () => void
