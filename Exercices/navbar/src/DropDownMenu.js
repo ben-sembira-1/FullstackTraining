@@ -49,30 +49,33 @@ export function DropDownMenu
   }, [setMenuHeight])
 
   const MainMenu = () => {
-    <Menu header='Main Menu'>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron/>} onClick={() => setActiveMenu('secondary-menu-1')}>Go to 1</MenuLinkItem>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron/>} onClick={() => setActiveMenu('secondary-menu-2')}>Go to 2</MenuLinkItem>
-    </Menu>
+    return <>
+      <h2>Main Menu</h2>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-1')}>Go to 1</MenuLinkItem>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-2')}>Go to 2</MenuLinkItem>
+    </>
   }
 
   const SubMenu1 = () => {
-    <Menu header='Menu 1'>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron/>} onClick={() => setActiveMenu('main-menu')}>back</MenuLinkItem>
+    return <>
+      <h2>Menu 1</h2>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')}>back</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
-    </Menu>
+    </>
   }
 
   const SubMenu2 = () => {
-    <Menu header='Menu 2'>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron/>} onClick={() => setActiveMenu('main-menu')}>back</MenuLinkItem>
+    return <>
+      <h2>Menu 2</h2>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')}>back</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
       <MenuLinkItem>Regular Option</MenuLinkItem>
-    </Menu>
+    </>
   }
   // HELP: I failed to make the drop down list open with a transition (as if it was with height 0 and then opend).
   // HELP: I failed to create a closure that creates a TransitionableSubMenu with the 2 states.
@@ -84,36 +87,44 @@ export function DropDownMenu
       className="drop-down-menu"
       style={{ height: menuHeight }}
     >
+      {/* CSSTransition has to have an explicit div inside it, putting a div as the wraper of MainMenu does not work. */}
       <CSSTransition
-      in={activeMenu === 'main-menu'}
-      unmountOnExit
-      timeout={timeout}
-      classNames={'menu-primary'}
-      onEnter={calculateHeight}
-      className='menu-transition'
-    >
-      <MainMenu/>
+        in={activeMenu === 'main-menu'}
+        unmountOnExit
+        timeout={timeout}
+        classNames={'menu-primary'}
+        onEnter={calculateHeight}
+        className='menu-transition'
+      >
+        <div className="menu">
+          <MainMenu />
+        </div>
+
       </CSSTransition>
       <CSSTransition
-      in={activeMenu === 'secondary-menu-1'}
-      unmountOnExit
-      timeout={timeout}
-      classNames={'menu-secondary'}
-      onEnter={calculateHeight}
-      className='menu-transition'
-    >
-      <SubMenu1/>
+        in={activeMenu === 'secondary-menu-1'}
+        unmountOnExit
+        timeout={timeout}
+        classNames={'menu-secondary'}
+        onEnter={calculateHeight}
+        className='menu-transition'
+      >
+        <div className="menu">
+          <SubMenu1 />
+        </div>
       </CSSTransition>
       <CSSTransition
-      in={activeMenu === 'secondary-menu-2'}
-      unmountOnExit
-      timeout={timeout}
-      classNames={'menu-secondary'}
-      onEnter={calculateHeight}
-      className='menu-transition'
-    >
-      <SubMenu2/>
-    </CSSTransition>
+        in={activeMenu === 'secondary-menu-2'}
+        unmountOnExit
+        timeout={timeout}
+        classNames={'menu-secondary'}
+        onEnter={calculateHeight}
+        className='menu-transition'
+      >
+        <div className="menu">
+          <SubMenu2 />
+        </div>
+      </CSSTransition>
     </div>
   )
 }
