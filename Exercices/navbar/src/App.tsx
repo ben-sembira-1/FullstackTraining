@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 
 import { Navbar, Navitem } from './Navbar'
 import { DropDownMenu } from './DropDownMenu'
@@ -6,7 +6,7 @@ import { ReactComponent as AccountIcon } from './icons/account.svg'
 import { ReactComponent as CreateIcon } from './icons/pencil-outline.svg'
 import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg'
 
-function App () {
+const App: FunctionComponent = () => {
   return (
     <Navbar>
       <Navitem icon={<AccountIcon />} />

@@ -1,12 +1,11 @@
 import React, { useState, FunctionComponent } from 'react'
-import { DropDownMenu } from './DropDownMenu'
 import { Container } from './commonTypes'
 
-interface NavitemInterface extends Container {
-  icon: React.ReactSVGElement
+interface NavitemProps extends Container {
+  icon: React.ReactElement
 }
 
-export function Navitem (props: NavitemInterface) {
+export const Navitem: FunctionComponent<NavitemProps> = (props: NavitemProps) => {
   const [open, setOpen] = useState(false)
   return (
     <li className="nav-item">
@@ -18,7 +17,7 @@ export function Navitem (props: NavitemInterface) {
   )
 }
 
-export function Navbar (props: Container) {
+export const Navbar: FunctionComponent = (props: Container) => {
   return (
     <nav className="navbar">
       <ul className="navbar-nav">{props.children}</ul>
