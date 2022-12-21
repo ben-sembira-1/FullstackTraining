@@ -1,26 +1,38 @@
-import { useId } from 'react';
+import React, { FunctionComponent, useId } from 'react'
 
-export function TextInput({ textState, placeholder }) {
-    const [text, setText] = textState;
-    return (
-        <div>
-            <input type="text" placeholder={placeholder || ""} onChange={(e) => setText(e.target.value)} value={text} />
-        </div>
-    );
+interface TextInputProps {
+  value: string
+  onValueChange: (newValue: string) => void
+  placeholder?: string
 }
 
-
-
-export function ToggleInput({ checkedState, label }) {
-    const [checked, setChecked] = checkedState;
-    const id = useId();
-    return (
+export const TextInput: FunctionComponent<TextInputProps> = (props) => {
+  return (
         <div>
-            <input id={id} type="checkbox" onChange={(e) => setChecked(e.target.checked)} checked={checked} />
+            <input
+                type="text"
+                placeholder={props.placeholder !== undefined ? props.placeholder : ''}
+                onChange={(event) => props.onValueChange(event.target.value)}
+                value={props.value} />
+        </div>
+  )
+}
+
+interface ToggleInputProps {
+  checked: boolean
+  onCheckedChange: (checked: boolean) => void
+  label: string
+}
+
+export const ToggleInput: FunctionComponent<ToggleInputProps> = (props) => {
+  const id = useId()
+  return (
+        <div>
+            <input id={id} type="checkbox" onChange={(event) => props.onCheckedChange(event.target.checked)} checked={props.checked} />
             {' '}
-            <label for={id}>
-                {label}
+            <label htmlFor={id}>
+                {props.label}
             </label>
         </div>
-    );
+  )
 }

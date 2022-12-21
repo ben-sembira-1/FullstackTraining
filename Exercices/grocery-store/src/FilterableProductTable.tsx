@@ -1,79 +1,91 @@
-import { SearchBar } from './search-section/SearchBar';
-import { TextInput, ToggleInput } from './search-section/Input';
-import { ProductsTable } from './ProductsTable';
-import { useCallback, useState } from 'react';
+import React, { FunctionComponent, useCallback, useState } from 'react'
+import { SearchBar } from './search-section/SearchBar'
+import { TextInput, ToggleInput } from './search-section/Input'
+import { CategorySet, ProductsTable } from './ProductsTable'
+import { Category, Product } from './interfaces/dbInterfaces'
 
+type Filter = (p: Product) => boolean
 
+function reduceFilters (products: Product[], filters: Filter[]): Product[] {
+  console.log('Filtering products...')
+  function passedAllFilters (product: Product): boolean {
+    return filters.every(
+      (currentFilter) => currentFilter(product)
+    )
+  }
 
-function reduceFilters(products, filters) {
-    console.log("Filtering products...");
-    function passedAllFilters(product) {
-        return filters.every(
-            (currentFilter) => currentFilter(product)
-        );
+  const filterdProducts = [...products].filter(
+    (product) => passedAllFilters(product)
+  )
+  return filterdProducts
+}
+
+const sortByCategory = (products: Product[]): Product[] => {
+  return [...products].sort(
+    (product1: Product, product2: Product): number => product1.category - product2.category
+  )
+}
+
+function categorize (products: Product[]): CategorySet[] {
+  console.log('categorizing products...')
+
+  const newCategorySet = (category: Category): CategorySet => ({ category, products: [] })
+  const sortedProducts = sortByCategory(products)
+
+  const categorizedProducts: CategorySet[] = []
+  let lastCategory: Category
+  let currentCategorySet: CategorySet
+
+  const firstIteration = (): boolean => lastCategory === undefined
+  sortedProducts.forEach(
+    (product) => {
+      if (firstIteration() || product.category !== lastCategory) {
+        currentCategorySet = newCategorySet(product.category)
+        categorizedProducts.push(currentCategorySet)
+        lastCategory = product.category
+      }
+
+      currentCategorySet.products.push(product)
     }
-
-    const filterdProducts = [...products].filter(
-        (product) => passedAllFilters(product)
-    );
-    return filterdProducts;
+  )
+  return categorizedProducts
 }
 
-const sortByCategory = (products) => [...products].sort(
-    (product1, product2) => product1.category.localeCompare(product2.category)
-)
-
-function categorize(products) {
-    console.log("categorizing products...")
-    const newCategorySet = (categoryName) => ({ name: categoryName, products: [] });
-    const sortedProducts = sortByCategory(products);
-
-    let categorizedProducts = [];
-    let lastCategory = null;
-    let currentCategorySet = null;
-    sortedProducts.forEach(
-        (product) => {
-            if (product.category !== lastCategory) {
-                currentCategorySet = newCategorySet(product.category);
-                categorizedProducts.push(currentCategorySet);
-                lastCategory = product.category;
-            }
-
-            currentCategorySet.products.push(product)
-        }
-    );
-    return categorizedProducts;
+interface FilterableProductTableProps {
+  products: Product[]
 }
 
-export function FilterableProductTable({ products }) {
-    const [searchValue, setSearchValue] = useState("");
-    const [onlyStocked, setOnlyStocked] = useState(false);
+export const FilterableProductTable: FunctionComponent<FilterableProductTableProps> = ({ products }) => {
+  const [searchValue, setSearchValue] = useState('')
+  const [onlyStocked, setOnlyStocked] = useState(false)
 
-    const searchFilter = useCallback(
-        (product) => product.name.includes(searchValue),
-        [searchValue]
-    )
-    const stockedFilter = useCallback(
-        (product) => !onlyStocked || product.stocked,
-        [onlyStocked]
-    )
+  const searchFilter: Filter = useCallback(
+    (product) => product.name.includes(searchValue),
+    [searchValue]
+  )
+  const stockedFilter: Filter = useCallback(
+    (product) => !onlyStocked || product.stocked,
+    [onlyStocked]
+  )
 
-    const filterdProducts = reduceFilters(products, [searchFilter, stockedFilter]);
-    const categorizedData = categorize(filterdProducts);
+  const filterdProducts = reduceFilters(products, [searchFilter, stockedFilter])
+  const categorizedData = categorize(filterdProducts)
 
-    return (
+  return (
         <>
             <SearchBar>
                 <TextInput
                     placeholder="Search..."
-                    textState={[searchValue, setSearchValue]}
+                    value={searchValue}
+                    onValueChange={setSearchValue}
                 />
                 <ToggleInput
                     label="Only show products in stock"
-                    checkedState={[onlyStocked, setOnlyStocked]}
+                    checked={onlyStocked}
+                    onCheckedChange={setOnlyStocked}
                 />
             </SearchBar>
             <ProductsTable products={categorizedData} />
         </>
-    );
+  )
 }
