@@ -94,7 +94,6 @@ export function DropDownMenu
         timeout={timeout}
         classNames={'menu-primary'}
         onEnter={calculateHeight}
-        className='menu-transition'
       >
         <div className="menu">
           <MainMenu />
@@ -107,7 +106,6 @@ export function DropDownMenu
         timeout={timeout}
         classNames={'menu-secondary'}
         onEnter={calculateHeight}
-        className='menu-transition'
       >
         <div className="menu">
           <SubMenu1 />
@@ -119,7 +117,6 @@ export function DropDownMenu
         timeout={timeout}
         classNames={'menu-secondary'}
         onEnter={calculateHeight}
-        className='menu-transition'
       >
         <div className="menu">
           <SubMenu2 />
