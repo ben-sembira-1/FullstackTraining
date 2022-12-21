@@ -1,0 +1,15 @@
+name: pre-commit-grocery-store
+
+on: [pull_request, push]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - uses: actions/setup-node@v3
+      - name: install grocery-store
+        working-directory: ./Exercices/grocery-store
+        run: npm install
+      - uses: pre-commit/action@v3.0.0
