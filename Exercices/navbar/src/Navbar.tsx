@@ -17,7 +17,7 @@ export const Navitem: FunctionComponent<NavitemProps> = (props: NavitemProps) =>
   )
 }
 
-export const Navbar: FunctionComponent = (props: Container) => {
+export const Navbar: FunctionComponent<Container> = (props: Container) => {
   return (
     <nav className="navbar">
       <ul className="navbar-nav">{props.children}</ul>

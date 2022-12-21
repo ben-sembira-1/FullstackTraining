@@ -2,14 +2,14 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
-import { ReactComponent as RightChevron } from './icons/chevron-right.svg'
-import { ReactComponent as LeftChevron } from './icons/chevron-left.svg'
-import { ReactComponent as SettingsIcon } from './icons/cog-outline.svg'
+import RightChevron from './icons/chevron-right.svg'
+import LeftChevron from './icons/chevron-left.svg'
+import SettingsIcon from './icons/cog-outline.svg'
 
 interface MenuLinkItemProps {
   onClick?: () => void
-  leftIcon?: React.ReactSVGElement
-  rightIcon?: React.ReactSVGElement
+  leftIcon?: React.ReactElement
+  rightIcon?: React.ReactElement
   label: string
 }
 
@@ -29,8 +29,8 @@ export function DropDownMenu (): React.ReactElement {
   const [activeMenu, setActiveMenu] = useState<string>('')
   const [menuHeight, setMenuHeight] = useState<any>(null)
 
-  const setHeightBeforeRender = (htmlElement: { offsetHeight: string }): void => {
-    console.log('Setting height to: ' + htmlElement.offsetHeight)
+  const setHeightBeforeRender = (htmlElement: { offsetHeight: number }): void => {
+    console.log(`Setting height to: ${htmlElement.offsetHeight}`)
     setMenuHeight(htmlElement.offsetHeight)
   }
 
