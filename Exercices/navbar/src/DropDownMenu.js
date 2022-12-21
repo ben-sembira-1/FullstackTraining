@@ -39,14 +39,21 @@ Menu.propTypes = {
 
 export function DropDownMenu
 () {
-  const [activeMenu, setActiveMenu] = useState('main-menu')
+  const [activeMenu, setActiveMenu] = useState(null)
   const [menuHeight, setMenuHeight] = useState(null)
   const dropDownMenu = useRef(null)
-  // This useEffect is for the first transition
-  useEffect(() => {
-    const menuComputedStyle = getComputedStyle(dropDownMenu.current)
-    setMenuHeight(menuComputedStyle.height)
-  }, [setMenuHeight])
+
+  const unmountTimeout = 500
+  const setHeightBeforeRender = (htmlElement) => {
+    console.log('Setting height to ' + htmlElement.offsetHeight)
+    return setMenuHeight(htmlElement.offsetHeight)
+  }
+
+  // (jsx hack) This makes the onEnter of the first menu run. Just setting the initial state to be this, does not do it.
+  useEffect(
+    () => setActiveMenu('main-menu'),
+    []
+  )
 
   const MainMenu = () => {
     return <>
@@ -79,21 +86,19 @@ export function DropDownMenu
   }
   // HELP: I failed to make the drop down list open with a transition (as if it was with height 0 and then opend).
   // HELP: I failed to create a closure that creates a TransitionableSubMenu with the 2 states.
-  const timeout = 500
-  const calculateHeight = (htmlElement) => setMenuHeight(htmlElement.offsetHeight)
+
   return (
     <div
       ref={dropDownMenu}
       className="drop-down-menu"
       style={{ height: menuHeight }}
     >
-      {/* CSSTransition has to have an explicit div inside it, putting a div as the wraper of MainMenu does not work. */}
       <CSSTransition
         in={activeMenu === 'main-menu'}
         unmountOnExit
-        timeout={timeout}
+        timeout={unmountTimeout}
         classNames={'menu-primary'}
-        onEnter={calculateHeight}
+        onEnter={setHeightBeforeRender}
       >
         <div className="menu">
           <MainMenu />
@@ -103,9 +108,9 @@ export function DropDownMenu
       <CSSTransition
         in={activeMenu === 'secondary-menu-1'}
         unmountOnExit
-        timeout={timeout}
+        timeout={unmountTimeout}
         classNames={'menu-secondary'}
-        onEnter={calculateHeight}
+        onEnter={setHeightBeforeRender}
       >
         <div className="menu">
           <SubMenu1 />
@@ -114,9 +119,9 @@ export function DropDownMenu
       <CSSTransition
         in={activeMenu === 'secondary-menu-2'}
         unmountOnExit
-        timeout={timeout}
+        timeout={unmountTimeout}
         classNames={'menu-secondary'}
-        onEnter={calculateHeight}
+        onEnter={setHeightBeforeRender}
       >
         <div className="menu">
           <SubMenu2 />
