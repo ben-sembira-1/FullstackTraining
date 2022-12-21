@@ -19,9 +19,9 @@ function MenuLinkItem
 }
 MenuLinkItem.propTypes = {
   onClick: PropTypes.func,
-  leftIcon: PropTypes.shape('svg'),
-  rightIcon: PropTypes.shape('svg'),
-  children: PropTypes.array.isRequired
+  leftIcon: PropTypes.element,
+  rightIcon: PropTypes.element,
+  children: PropTypes.node
 }
 
 export function DropDownMenu
