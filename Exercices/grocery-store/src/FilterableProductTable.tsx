@@ -20,7 +20,7 @@ function reduceFilters (products: Product[], filters: Filter[]): Product[] {
   return filterdProducts
 }
 
-const sortByCategory = (products: Product[]): Product[] => {
+const sortProductsByCategory = (products: Product[]): Product[] => {
   return [...products].sort(
     (product1: Product, product2: Product): number => product1.category - product2.category
   )
@@ -30,19 +30,17 @@ function categorize (products: Product[]): CategorySet[] {
   console.log('categorizing products...')
 
   const newCategorySet = (category: Category): CategorySet => ({ category, products: [] })
-  const sortedProducts = sortByCategory(products)
+  const sortedProducts = sortProductsByCategory(products)
 
   const categorizedProducts: CategorySet[] = []
-  let lastCategory: Category
   let currentCategorySet: CategorySet
 
-  const firstIteration = (): boolean => lastCategory === undefined
+  const firstIteration = (): boolean => currentCategorySet === undefined
   sortedProducts.forEach(
     (product) => {
-      if (firstIteration() || product.category !== lastCategory) {
+      if (firstIteration() || product.category !== currentCategorySet.category) {
         currentCategorySet = newCategorySet(product.category)
         categorizedProducts.push(currentCategorySet)
-        lastCategory = product.category
       }
 
       currentCategorySet.products.push(product)
