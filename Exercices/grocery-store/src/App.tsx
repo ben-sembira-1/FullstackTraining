@@ -1,3 +1,4 @@
+import React from 'react';
 import { FilterableProductTable } from './FilterableProductTable'
 
 function fetchAllProducts() {
