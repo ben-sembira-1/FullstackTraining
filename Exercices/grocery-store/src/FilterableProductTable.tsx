@@ -58,7 +58,7 @@ export const FilterableProductTable: FunctionComponent<FilterableProductTablePro
   const [onlyStocked, setOnlyStocked] = useState(false)
 
   const searchFilter: Filter = useCallback(
-    (product) => product.name.includes(searchValue),
+    (product) => product.name.toLowerCase().includes(searchValue.toLowerCase()),
     [searchValue]
   )
   const stockedFilter: Filter = useCallback(
