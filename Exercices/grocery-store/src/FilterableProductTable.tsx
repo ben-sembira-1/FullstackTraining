@@ -26,20 +26,20 @@ export const FilterableProductTable: FunctionComponent<FilterableProductTablePro
   const categorizedData = categorize(filterdProducts)
 
   return (
-        <>
-            <SearchBar>
-                <TextInput
-                    placeholder="Search..."
-                    value={searchValue}
-                    onValueChange={setSearchValue}
-                />
-                <ToggleInput
-                    label="Only show products in stock"
-                    checked={onlyStocked}
-                    onCheckedChange={setOnlyStocked}
-                />
-            </SearchBar>
-            <ProductsTable categorizedProducts={categorizedData} />
-        </>
+    <>
+      <SearchBar>
+        <TextInput
+          placeholder="Search..."
+          value={searchValue}
+          onValueChange={setSearchValue}
+        />
+        <ToggleInput
+          label="Only show products in stock"
+          checked={onlyStocked}
+          onCheckedChange={setOnlyStocked}
+        />
+      </SearchBar>
+      <ProductsTable categorizedProducts={categorizedData} />
+    </>
   )
 }

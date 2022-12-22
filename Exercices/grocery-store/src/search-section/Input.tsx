@@ -8,13 +8,13 @@ interface TextInputProps {
 
 export const TextInput: FunctionComponent<TextInputProps> = (props) => {
   return (
-        <div>
-            <input
-                type="text"
-                placeholder={props.placeholder !== undefined ? props.placeholder : ''}
-                onChange={(event) => props.onValueChange(event.target.value)}
-                value={props.value} />
-        </div>
+    <div>
+      <input
+        type="text"
+        placeholder={props.placeholder !== undefined ? props.placeholder : ''}
+        onChange={(event) => props.onValueChange(event.target.value)}
+        value={props.value} />
+    </div>
   )
 }
 
@@ -27,12 +27,12 @@ interface ToggleInputProps {
 export const ToggleInput: FunctionComponent<ToggleInputProps> = (props) => {
   const id = useId()
   return (
-        <div>
-            <input id={id} type="checkbox" onChange={(event) => props.onCheckedChange(event.target.checked)} checked={props.checked} />
-            {' '}
-            <label htmlFor={id}>
-                {props.label}
-            </label>
-        </div>
+    <div>
+      <input id={id} type="checkbox" onChange={(event) => props.onCheckedChange(event.target.checked)} checked={props.checked} />
+      {' '}
+      <label htmlFor={id}>
+        {props.label}
+      </label>
+    </div>
   )
 }
