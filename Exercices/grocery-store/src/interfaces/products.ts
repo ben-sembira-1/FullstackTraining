@@ -1,13 +1,13 @@
+import { DBProductEntry } from './dbEntry'
+
 export enum Category {
   FRUITS,
   VEGETABLES
 }
 
-export interface Product {
+export interface Product extends Omit<DBProductEntry, 'category'> {
   category: Category
-  priceDollars: number
-  stocked: boolean
-  name: string
+  uuid: string
 }
 
 export interface CategorySet {

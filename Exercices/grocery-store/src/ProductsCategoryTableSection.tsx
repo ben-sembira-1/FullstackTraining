@@ -15,7 +15,7 @@ export const ProductsCategoryTableSection: FunctionComponent<ProductsCategoryTab
             </tr>
             {
                 props.products.map(
-                  (product, index) => <ProductTableRow key={index} product={product} />
+                  (product, index) => <ProductTableRow key={product.uuid} product={product} />
                 )
             }
         </>

@@ -1,4 +1,7 @@
+import { v4 as uuid } from 'uuid'
+import { DBProductEntry } from '../interfaces/dbEntry'
 import { Category, CategorySet, Product } from '../interfaces/products'
+import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
@@ -43,4 +46,28 @@ export function categorize (products: Product[]): CategorySet[] {
     }
   )
   return categorizedProducts
+}
+
+function stringIsCategory (s: string): s is keyof typeof Category {
+  const keys = Object.keys(Category).filter((key) => isNaN(Number(key)))
+  return keys.includes(s)
+}
+
+const InvalidCategory = Object.create(Error)
+
+function stringToCategory (s: string): Category {
+  const upperSnakeCaseString = toUpperSnakeCase(s)
+  if (stringIsCategory(upperSnakeCaseString)) {
+    return Category[upperSnakeCaseString]
+  } else {
+    throw InvalidCategory(`${s} is not a valid category`)
+  }
+}
+
+export function productFactory (dbEntry: DBProductEntry): Product {
+  return {
+    ...dbEntry,
+    category: stringToCategory(dbEntry.category),
+    uuid: uuid()
+  }
 }
