@@ -83,7 +83,7 @@ export const FilterableProductTable: FunctionComponent<FilterableProductTablePro
                     onCheckedChange={setOnlyStocked}
                 />
             </SearchBar>
-            <ProductsTable products={categorizedData} />
+            <ProductsTable categorizedProducts={categorizedData} />
         </>
   )
 }
