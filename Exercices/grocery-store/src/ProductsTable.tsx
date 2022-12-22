@@ -13,7 +13,7 @@ function CreateProductsCategoryTableSectionList (categorizedProducts: Categorize
       const categoryName = Category[category.category]
       const categoryNiceHeader = snakeCaseToCapitlizedHeader(categoryName)
       return <ProductsCategoryTableSection
-        key={index}
+        key={category.uuid}
         name={categoryNiceHeader}
         products={category.products}
       />

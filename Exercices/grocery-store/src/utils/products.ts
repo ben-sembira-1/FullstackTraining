@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { DBProductEntry } from '../interfaces/dbEntry'
 import { Category, CategoryKey, CategorySet, Product } from '../interfaces/products'
 import { toUpperSnakeCase } from './strings'
@@ -28,7 +28,7 @@ export const sortProductsByCategory = (products: Product[]): Product[] => {
 export function categorize (products: Product[]): CategorySet[] {
   console.log('categorizing products...')
 
-  const newCategorySet = (category: Category): CategorySet => ({ category, products: [] })
+  const newCategorySet = (category: Category): CategorySet => ({ category, products: [], uuid: uuidv4() })
   const sortedProducts = sortProductsByCategory(products)
 
   const categorizedProducts: CategorySet[] = []
@@ -68,6 +68,6 @@ export function productFactory (dbEntry: DBProductEntry): Product {
   return {
     ...dbEntry,
     category: stringToCategory(dbEntry.category),
-    uuid: uuid()
+    uuid: uuidv4()
   }
 }

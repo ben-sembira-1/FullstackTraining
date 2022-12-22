@@ -15,6 +15,7 @@ export interface Product extends Omit<DBProductEntry, 'category'> {
 export interface CategorySet {
   category: Category
   products: Product[]
+  uuid: string
 }
 
 export type CategorizedProducts = CategorySet[]
