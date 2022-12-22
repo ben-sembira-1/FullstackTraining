@@ -9,3 +9,10 @@ export interface Product {
   stocked: boolean
   name: string
 }
+
+export interface CategorySet {
+  category: Category
+  products: Product[]
+}
+
+export type CategorizedProducts = CategorySet[]

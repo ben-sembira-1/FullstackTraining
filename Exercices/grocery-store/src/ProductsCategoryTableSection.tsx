@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Product } from './interfaces/dbInterfaces'
+import { Product } from './interfaces/products'
 import { ProductTableRow } from './ProductTableRow'
 
 interface ProductsCategoryTableSectionProps {

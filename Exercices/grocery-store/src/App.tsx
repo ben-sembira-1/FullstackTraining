@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { FilterableProductTable } from './FilterableProductTable'
-import { Category, Product } from './interfaces/dbInterfaces'
+import { Category, Product } from './interfaces/products'
 
 function fetchAllProducts (): Product[] {
   const products: Product[] = []

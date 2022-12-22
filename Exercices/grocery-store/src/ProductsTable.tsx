@@ -1,14 +1,7 @@
 import React, { FunctionComponent, ReactElement } from 'react'
-import { Category, Product } from './interfaces/dbInterfaces'
+import { CategorizedProducts, Category } from './interfaces/products'
 import { ProductsCategoryTableSection } from './ProductsCategoryTableSection'
 import { snakeCaseToCapitlizedHeader } from './utils/strings'
-
-export interface CategorySet {
-  category: Category
-  products: Product[]
-}
-
-type CategorizedProducts = CategorySet[]
 
 interface ProductsTableProps {
   categorizedProducts: CategorizedProducts
