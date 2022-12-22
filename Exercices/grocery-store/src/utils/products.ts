@@ -34,10 +34,15 @@ export function categorize (products: Product[]): CategorySet[] {
   const categorizedProducts: CategorySet[] = []
   let currentCategorySet: CategorySet
 
-  const firstIteration = (): boolean => currentCategorySet === undefined
+  function isFirstIteration (): boolean {
+    return currentCategorySet === undefined
+  }
+  function categoryHasChanged (category: Category): boolean {
+    return category !== currentCategorySet.category
+  }
   sortedProducts.forEach(
     (product) => {
-      if (firstIteration() || product.category !== currentCategorySet.category) {
+      if (isFirstIteration() || categoryHasChanged(product.category)) {
         currentCategorySet = newCategorySet(product.category)
         categorizedProducts.push(currentCategorySet)
       }
