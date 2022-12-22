@@ -3,7 +3,7 @@ import { SearchBar } from './search-section/SearchBar'
 import { TextInput, ToggleInput } from './search-section/Input'
 import { ProductsTable } from './ProductsTable'
 import { Product } from './interfaces/products'
-import { categorize, Filter, reduceFilters } from './utils/products'
+import { categorize, ProductFilter, reduceFilters } from './utils/products'
 
 interface FilterableProductTableProps {
   products: Product[]
@@ -13,11 +13,11 @@ export const FilterableProductTable: FunctionComponent<FilterableProductTablePro
   const [searchValue, setSearchValue] = useState('')
   const [onlyStocked, setOnlyStocked] = useState(false)
 
-  const searchFilter: Filter = useCallback(
+  const searchFilter: ProductFilter = useCallback(
     (product) => product.name.toLowerCase().includes(searchValue.toLowerCase()),
     [searchValue]
   )
-  const stockedFilter: Filter = useCallback(
+  const stockedFilter: ProductFilter = useCallback(
     (product) => !onlyStocked || product.stocked,
     [onlyStocked]
   )

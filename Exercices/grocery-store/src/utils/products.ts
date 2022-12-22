@@ -1,8 +1,8 @@
 import { Category, CategorySet, Product } from '../interfaces/products'
 
-export type Filter = (p: Product) => boolean
+export type ProductFilter = (p: Product) => boolean
 
-export function reduceFilters (products: Product[], filters: Filter[]): Product[] {
+export function reduceFilters (products: Product[], filters: ProductFilter[]): Product[] {
   console.log('Filtering products...')
   function passedAllFilters (product: Product): boolean {
     return filters.every(
