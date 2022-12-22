@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import { DBProductEntry } from '../interfaces/dbEntry'
-import { Category, CategorySet, Product } from '../interfaces/products'
+import { Category, CategoryKey, CategorySet, Product } from '../interfaces/products'
 import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
@@ -48,7 +48,7 @@ export function categorize (products: Product[]): CategorySet[] {
   return categorizedProducts
 }
 
-function stringIsCategory (s: string): s is keyof typeof Category {
+function stringIsCategory (s: string): s is CategoryKey {
   const keys = Object.keys(Category).filter((key) => isNaN(Number(key)))
   return keys.includes(s)
 }

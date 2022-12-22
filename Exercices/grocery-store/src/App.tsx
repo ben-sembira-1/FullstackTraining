@@ -25,7 +25,7 @@ function fetchDB (): DBProductEntry[] {
 
 function getProductsFromDB (): Product[] {
   const dbData = fetchDB()
-  return dbData.map((dpProductEntry) => productFactory(dpProductEntry))
+  return dbData.map((dpEntry) => productFactory(dpEntry))
 }
 
 const App: FunctionComponent = () => {

@@ -5,6 +5,8 @@ export enum Category {
   VEGETABLES
 }
 
+export type CategoryKey = keyof typeof Category
+
 export interface Product extends Omit<DBProductEntry, 'category'> {
   category: Category
   uuid: string
