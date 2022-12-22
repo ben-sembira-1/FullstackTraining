@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import { FilterableProductTable } from './FilterableProductTable'
+import { DBProductEntry } from './interfaces/dbEntry'
 import { Product } from './interfaces/products'
 import { productFactory } from './utils/products'
 
-function fetchAllProducts (): Product[] {
-  const products: Product[] = []
+function fetchDB (): DBProductEntry[] {
+  const products: DBProductEntry[] = []
   for (let basePrice = 0; basePrice < 3; basePrice++) {
     [{ category: 'FRUITS', priceDollars: 1, stocked: true, name: 'Apple' },
       { category: 'FRUITS', priceDollars: 1, stocked: true, name: 'Dragonfruit' },
@@ -13,19 +14,23 @@ function fetchAllProducts (): Product[] {
       { category: 'VEGETABLES', priceDollars: 4, stocked: false, name: 'Pumpkin' },
       { category: 'VEGETABLES', priceDollars: 1, stocked: true, name: 'Peas' }].forEach(
       (value) => {
-        const currentProduct = productFactory(value)
-        currentProduct.priceDollars = value.priceDollars + basePrice
-        currentProduct.stocked = Math.random() > 0.3
-        products.push(currentProduct)
+        value.priceDollars = value.priceDollars + basePrice
+        value.stocked = Math.random() > 0.3
+        products.push(value)
       }
     )
   }
   return products
 }
 
+function getProductsFromDB (): Product[] {
+  const dbData = fetchDB()
+  return dbData.map((dpProductEntry) => productFactory(dpProductEntry))
+}
+
 const App: FunctionComponent = () => {
   return (
-    <FilterableProductTable products={fetchAllProducts()} />
+    <FilterableProductTable products={getProductsFromDB()} />
   )
 }
 
