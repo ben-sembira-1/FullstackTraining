@@ -19,11 +19,10 @@ export const reduceFilters = (products: Product[], filters: ProductFilter[]): Pr
   return filterdProducts
 }
 
-export const sortProductsByCategory = (products: Product[]): Product[] => {
-  return [...products].sort(
+export const sortProductsByCategory = (products: Product[]): Product[] =>
+  [...products].sort(
     (product1: Product, product2: Product): number => product1.category - product2.category
   )
-}
 
 export const categorize = (products: Product[]): CategorySet[] => {
   console.log('categorizing products...')
@@ -50,7 +49,8 @@ export const categorize = (products: Product[]): CategorySet[] => {
 }
 
 const stringIsCategory = (s: string): s is CategoryKey => {
-  const keys = Object.keys(Category).filter((key) => isNaN(Number(key)))
+  const keysAndValues = Object.keys(Category)
+  const keys = keysAndValues.filter((key) => isNaN(Number(key)))
   return keys.includes(s)
 }
 
