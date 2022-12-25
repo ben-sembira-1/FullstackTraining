@@ -26,10 +26,12 @@ export const categorize = (products: Product[]): Map<Category, ProductsSet> => {
   const categorizedProducts = new Map<Category, ProductsSet>()
   products.forEach(
     (product) => {
-      if (!categorizedProducts.has(product.category)) {
-        categorizedProducts.set(product.category, newEmptyProductsSet())
+      let productSet = categorizedProducts.get(product.category)
+      if (productSet === undefined) {
+        productSet = newEmptyProductsSet()
+        categorizedProducts.set(product.category, productSet)
       }
-      categorizedProducts.get(product.category)?.products.push(product)
+      productSet.products.push(product)
     }
   )
   return categorizedProducts
