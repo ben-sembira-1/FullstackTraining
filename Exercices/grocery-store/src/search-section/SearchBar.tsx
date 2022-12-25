@@ -17,7 +17,7 @@ export const SearchBar: FunctionComponent<SearchBarProps> = (props) => {
         onValueChange={props.onSearchValueChange}
       />
       <ToggleInput
-        label="Show products not in stock"
+        label="Only show products in stock"
         checked={props.onlyInStock}
         onCheckedChange={props.onOnlyInStockChange}
       />
