@@ -1,10 +1,26 @@
 import React, { FunctionComponent } from 'react'
-import { Container } from '../interfaces/commonTypes'
+import { TextInput, ToggleInput } from './Input'
 
-export const SearchBar: FunctionComponent<Container> = ({ children }) => {
+interface SearchBarProps {
+  searchValue: string
+  onSearchValueChange: (s: string) => void
+  onlyInStock: boolean
+  onOnlyInStockChange: (onlyInStock: boolean) => void
+}
+
+export const SearchBar: FunctionComponent<SearchBarProps> = (props) => {
   return (
     <div>
-      {children}
+      <TextInput
+        placeholder="Search..."
+        value={props.searchValue}
+        onValueChange={props.onSearchValueChange}
+      />
+      <ToggleInput
+        label="Show products not in stock"
+        checked={props.onlyInStock}
+        onCheckedChange={props.onOnlyInStockChange}
+      />
     </div>
   )
 }
