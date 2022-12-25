@@ -9,7 +9,7 @@ export const Navitem: FunctionComponent<NavitemProps> = (props: NavitemProps) =>
   const [open, setOpen] = useState(false)
   return (
     <li className="nav-item">
-      <button className="item-button button" onClick={() => setOpen(!open)}>
+      <button className="item-button button" onClick={() => setOpen(prevOpen => !prevOpen)}>
         {props.icon}
       </button>
       {open && props.children}
