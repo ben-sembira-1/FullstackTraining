@@ -28,10 +28,6 @@ const getProductsFromDB = (): Product[] => {
   return dbData.map((dpEntry) => productFactory(dpEntry))
 }
 
-const App: FunctionComponent = () => {
-  return (
-    <FilterableProductTable products={getProductsFromDB()} />
-  )
-}
+const App: FunctionComponent = () => <FilterableProductTable products={getProductsFromDB()} />
 
 export default App

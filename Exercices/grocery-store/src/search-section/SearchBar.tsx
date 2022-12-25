@@ -8,8 +8,8 @@ interface SearchBarProps {
   onOnlyInStockChange: (onlyInStock: boolean) => void
 }
 
-export const SearchBar: FunctionComponent<SearchBarProps> = (props) => {
-  return (
+export const SearchBar: FunctionComponent<SearchBarProps> = (props) =>
+  (
     <div>
       <TextInput
         placeholder="Search..."
@@ -23,4 +23,3 @@ export const SearchBar: FunctionComponent<SearchBarProps> = (props) => {
       />
     </div>
   )
-}
