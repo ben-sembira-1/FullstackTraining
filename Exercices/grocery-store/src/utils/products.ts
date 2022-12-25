@@ -54,7 +54,7 @@ const stringToCategory = (s: string): Category => {
   }
 }
 
-export const productFactory = (dbEntry: DBProductEntry): Product => {
+export const createProductFromDBEntry = (dbEntry: DBProductEntry): Product => {
   return {
     ...dbEntry,
     category: stringToCategory(dbEntry.category),

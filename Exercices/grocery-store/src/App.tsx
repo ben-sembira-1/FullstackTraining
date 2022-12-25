@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { FilterableProductTable } from './FilterableProductTable'
 import { DBProductEntry } from './interfaces/dbEntry'
 import { Product } from './interfaces/products'
-import { productFactory } from './utils/products'
+import { createProductFromDBEntry } from './utils/products'
 
 const fetchDB = (): DBProductEntry[] => {
   const products: DBProductEntry[] = []
@@ -25,7 +25,7 @@ const fetchDB = (): DBProductEntry[] => {
 
 const getProductsFromDB = (): Product[] => {
   const dbData = fetchDB()
-  return dbData.map((dpEntry) => productFactory(dpEntry))
+  return dbData.map((dpEntry) => createProductFromDBEntry(dpEntry))
 }
 
 const App: FunctionComponent = () => <FilterableProductTable products={getProductsFromDB()} />
