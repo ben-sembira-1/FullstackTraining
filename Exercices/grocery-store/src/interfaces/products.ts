@@ -12,10 +12,7 @@ export type Product = {
   uuid: string
 } & Omit<DBProductEntry, 'category'>
 
-export type CategorySet = {
-  category: Category
+export type ProductsSet = {
   products: Product[]
   uuid: string
 }
-
-export type CategorizedProducts = CategorySet[]

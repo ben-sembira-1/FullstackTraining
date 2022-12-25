@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { DBProductEntry } from '../interfaces/dbEntry'
-import { Category, CategoryKey, CategorySet, Product } from '../interfaces/products'
+import { Category, CategoryKey, Product, ProductsSet } from '../interfaces/products'
 import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
@@ -19,31 +19,17 @@ export const reduceFilters = (products: Product[], filters: ProductFilter[]): Pr
   return filterdProducts
 }
 
-export const sortProductsByCategory = (products: Product[]): Product[] =>
-  [...products].sort(
-    (product1: Product, product2: Product): number => product1.category - product2.category
-  )
+const newEmptyProductsSet = (): ProductsSet => ({ products: [], uuid: uuidv4() })
 
-const newEmptyCategorySet = (category: Category): CategorySet => ({ category, products: [], uuid: uuidv4() })
-
-export const categorize = (products: Product[]): CategorySet[] => {
+export const categorize = (products: Product[]): Map<Category, ProductsSet> => {
   console.log('categorizing products...')
-
-  const sortedProducts = sortProductsByCategory(products)
-
-  const categorizedProducts: CategorySet[] = []
-  let currentCategorySet: CategorySet
-
-  const isFirstIteration = (): boolean => currentCategorySet === undefined
-  const categoryHasChanged = (category: Category): boolean => category !== currentCategorySet.category
-  sortedProducts.forEach(
+  const categorizedProducts = new Map<Category, ProductsSet>()
+  products.forEach(
     (product) => {
-      if (isFirstIteration() || categoryHasChanged(product.category)) {
-        currentCategorySet = newEmptyCategorySet(product.category)
-        categorizedProducts.push(currentCategorySet)
+      if (!categorizedProducts.has(product.category)) {
+        categorizedProducts.set(product.category, newEmptyProductsSet())
       }
-
-      currentCategorySet.products.push(product)
+      categorizedProducts.get(product.category)?.products.push(product)
     }
   )
   return categorizedProducts
