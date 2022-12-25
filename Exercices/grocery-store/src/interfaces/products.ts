@@ -7,12 +7,12 @@ export enum Category {
 
 export type CategoryKey = keyof typeof Category
 
-export interface Product extends Omit<DBProductEntry, 'category'> {
+export type Product = {
   category: Category
   uuid: string
-}
+} & Omit<DBProductEntry, 'category'>
 
-export interface CategorySet {
+export type CategorySet = {
   category: Category
   products: Product[]
   uuid: string

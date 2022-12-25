@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Product } from './interfaces/products'
 
-interface ProductTableRowProps {
+type ProductTableRowProps = {
   product: Product
 }
 

@@ -21,6 +21,7 @@ module.exports = {
     'react'
   ],
   rules: {
-    indent: ['error', 2]
+    indent: ['error', 2],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type']
   }
 }

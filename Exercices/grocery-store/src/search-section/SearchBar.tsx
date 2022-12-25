@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { TextInput, ToggleInput } from './Input'
 
-interface SearchBarProps {
+type SearchBarProps = {
   searchValue: string
   onSearchValueChange: (s: string) => void
   onlyInStock: boolean

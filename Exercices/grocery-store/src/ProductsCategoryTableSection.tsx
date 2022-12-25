@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { Product } from './interfaces/products'
 import { ProductTableRow } from './ProductTableRow'
 
-interface ProductsCategoryTableSectionProps {
+type ProductsCategoryTableSectionProps = {
   name: string
   products: Product[]
 }

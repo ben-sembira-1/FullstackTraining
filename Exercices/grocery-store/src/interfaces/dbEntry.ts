@@ -1,4 +1,4 @@
-export interface DBProductEntry {
+export type DBProductEntry = {
   category: string
   priceDollars: number
   stocked: boolean

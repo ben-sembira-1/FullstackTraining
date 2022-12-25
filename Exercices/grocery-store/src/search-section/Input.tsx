@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useId } from 'react'
 
-interface TextInputProps {
+type TextInputProps = {
   value: string
   onValueChange: (newValue: string) => void
   placeholder?: string
@@ -18,7 +18,7 @@ export const TextInput: FunctionComponent<TextInputProps> = (props) => {
   )
 }
 
-interface ToggleInputProps {
+type ToggleInputProps = {
   checked: boolean
   onCheckedChange: (checked: boolean) => void
   label: string

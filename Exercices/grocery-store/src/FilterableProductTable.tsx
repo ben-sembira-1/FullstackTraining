@@ -4,7 +4,7 @@ import { ProductsTable } from './ProductsTable'
 import { Product } from './interfaces/products'
 import { categorize, ProductFilter, reduceFilters } from './utils/products'
 
-interface FilterableProductTableProps {
+type FilterableProductTableProps = {
   products: Product[]
 }
 

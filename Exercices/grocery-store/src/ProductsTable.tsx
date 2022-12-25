@@ -3,7 +3,7 @@ import { CategorizedProducts, Category, CategorySet } from './interfaces/product
 import { ProductsCategoryTableSection } from './ProductsCategoryTableSection'
 import { snakeCaseToCapitlizedHeader } from './utils/strings'
 
-interface ProductsTableProps {
+type ProductsTableProps = {
   categorizedProducts: CategorizedProducts
 }
 
