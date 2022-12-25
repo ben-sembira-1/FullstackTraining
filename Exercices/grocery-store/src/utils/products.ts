@@ -5,9 +5,9 @@ import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
-export function reduceFilters (products: Product[], filters: ProductFilter[]): Product[] {
+export const reduceFilters = (products: Product[], filters: ProductFilter[]): Product[] => {
   console.log('Filtering products...')
-  function passedAllFilters (product: Product): boolean {
+  const passedAllFilters = (product: Product): boolean => {
     return filters.every(
       (currentFilter) => currentFilter(product)
     )
@@ -25,7 +25,7 @@ export const sortProductsByCategory = (products: Product[]): Product[] => {
   )
 }
 
-export function categorize (products: Product[]): CategorySet[] {
+export const categorize = (products: Product[]): CategorySet[] => {
   console.log('categorizing products...')
 
   const newCategorySet = (category: Category): CategorySet => ({ category, products: [], uuid: uuidv4() })
@@ -34,12 +34,8 @@ export function categorize (products: Product[]): CategorySet[] {
   const categorizedProducts: CategorySet[] = []
   let currentCategorySet: CategorySet
 
-  function isFirstIteration (): boolean {
-    return currentCategorySet === undefined
-  }
-  function categoryHasChanged (category: Category): boolean {
-    return category !== currentCategorySet.category
-  }
+  const isFirstIteration = (): boolean => currentCategorySet === undefined
+  const categoryHasChanged = (category: Category): boolean => category !== currentCategorySet.category
   sortedProducts.forEach(
     (product) => {
       if (isFirstIteration() || categoryHasChanged(product.category)) {
@@ -53,14 +49,14 @@ export function categorize (products: Product[]): CategorySet[] {
   return categorizedProducts
 }
 
-function stringIsCategory (s: string): s is CategoryKey {
+const stringIsCategory = (s: string): s is CategoryKey => {
   const keys = Object.keys(Category).filter((key) => isNaN(Number(key)))
   return keys.includes(s)
 }
 
 const InvalidCategory = Object.create(Error)
 
-function stringToCategory (s: string): Category {
+const stringToCategory = (s: string): Category => {
   const upperSnakeCaseString = toUpperSnakeCase(s)
   if (stringIsCategory(upperSnakeCaseString)) {
     return Category[upperSnakeCaseString]
@@ -69,7 +65,7 @@ function stringToCategory (s: string): Category {
   }
 }
 
-export function productFactory (dbEntry: DBProductEntry): Product {
+export const productFactory = (dbEntry: DBProductEntry): Product => {
   return {
     ...dbEntry,
     category: stringToCategory(dbEntry.category),

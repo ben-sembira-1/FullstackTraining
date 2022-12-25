@@ -7,7 +7,7 @@ interface ProductsTableProps {
   categorizedProducts: CategorizedProducts
 }
 
-function CreateProductsCategoryTableSectionList (categorizedProducts: CategorizedProducts): ReactElement[] {
+const CreateProductsCategoryTableSectionList = (categorizedProducts: CategorizedProducts): ReactElement[] => {
   return categorizedProducts.map(
     (category, index) => {
       const categoryName = Category[category.category]

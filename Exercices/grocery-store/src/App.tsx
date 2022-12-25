@@ -4,7 +4,7 @@ import { DBProductEntry } from './interfaces/dbEntry'
 import { Product } from './interfaces/products'
 import { productFactory } from './utils/products'
 
-function fetchDB (): DBProductEntry[] {
+const fetchDB = (): DBProductEntry[] => {
   const products: DBProductEntry[] = []
   for (let basePrice = 0; basePrice < 3; basePrice++) {
     [{ category: 'FRUITS', priceDollars: 1, stocked: true, name: 'Apple' },
@@ -23,7 +23,7 @@ function fetchDB (): DBProductEntry[] {
   return products
 }
 
-function getProductsFromDB (): Product[] {
+const getProductsFromDB = (): Product[] => {
   const dbData = fetchDB()
   return dbData.map((dpEntry) => productFactory(dpEntry))
 }
