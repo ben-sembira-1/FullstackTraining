@@ -7,24 +7,33 @@ type ProductsTableProps = {
   categorizedProducts: Map<Category, ProductsSet>
 }
 
-const createProductsCategoryTableSectionFromCategory = (category: Category, productsSet: ProductsSet): React.ReactElement => {
-  const categoryName = Category[category]
+type CategoryTableSectionProps = {
+  category: Category
+  productsSet: ProductsSet
+}
+
+const CategoryTableSection: FunctionComponent<CategoryTableSectionProps> = (props) => {
+  const categoryName = Category[props.category]
   const categoryNiceHeader = snakeCaseToCapitlizedHeader(categoryName)
   return <ProductsCategoryTableSection
-    key={productsSet.uuid}
+    key={props.productsSet.uuid}
     name={categoryNiceHeader}
-    products={productsSet.products}
+    products={props.productsSet.products}
   />
 }
 
-const CreateProductsCategoryTableSectionList = (categorizedProducts: Map<Category, ProductsSet>): ReactElement[] => {
+type CategoryTableSectionListProps = {
+  categorizedProducts: Map<Category, ProductsSet>
+}
+
+const CategoryTableSectionList: FunctionComponent<CategoryTableSectionListProps> = (props) => {
   const sections: ReactElement[] = []
-  categorizedProducts.forEach(
+  props.categorizedProducts.forEach(
     (productsSet, category) => sections.push(
-      createProductsCategoryTableSectionFromCategory(category, productsSet)
+      <CategoryTableSection category={category} productsSet={productsSet}/>
     )
   )
-  return sections
+  return <>{sections}</>
 }
 
 export const ProductsTable: FunctionComponent<ProductsTableProps> = (props) =>
@@ -35,7 +44,7 @@ export const ProductsTable: FunctionComponent<ProductsTableProps> = (props) =>
           <th>Name</th>
           <th>Price</th>
         </tr>
-        {CreateProductsCategoryTableSectionList(props.categorizedProducts)}
+        <CategoryTableSectionList categorizedProducts={props.categorizedProducts}/>
       </table>
     </div>
   )
