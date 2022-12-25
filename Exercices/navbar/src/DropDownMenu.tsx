@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { CSSTransition } from 'react-transition-group'
 
@@ -40,37 +40,35 @@ export function DropDownMenu (): React.ReactElement {
     []
   )
 
-  const MainMenu: FunctionComponent = () => {
-    return <>
+  const MainMenu = (
+    <>
       <h2>Main Menu</h2>
-      {/* <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-1')} label='Go to 1'/>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-2')} label='Go to 2'/> */}
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-1')} label='Go to 1'/>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-2')} label='Go to 2'/>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-1')} label='Go to 1' />
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<RightChevron />} onClick={() => setActiveMenu('secondary-menu-2')} label='Go to 2' />
     </>
-  }
+  )
 
-  const SubMenu1: FunctionComponent = () => {
-    return <>
+  const SubMenu1 = (
+    <>
       <h2>Menu 1</h2>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')} label="back"/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')} label="back" />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
     </>
-  }
+  )
 
-  const SubMenu2: FunctionComponent = () => {
-    return <>
+  const SubMenu2 = (
+    <>
       <h2>Menu 2</h2>
-      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')} label="back"/>
-      <MenuLinkItem label='Regular option'/>
-      <MenuLinkItem label='Regular option'/>
+      <MenuLinkItem leftIcon={<SettingsIcon />} rightIcon={<LeftChevron />} onClick={() => setActiveMenu('main-menu')} label="back" />
+      <MenuLinkItem label='Regular option' />
+      <MenuLinkItem label='Regular option' />
     </>
-  }
+  )
   // HELP: I failed to make the drop down list open with a transition (as if it was with height 0 and then opend).
   // HELP: I failed to create a closure that creates a TransitionableSubMenu with the 2 states.
 
@@ -87,7 +85,7 @@ export function DropDownMenu (): React.ReactElement {
         onEnter={setHeightBeforeRender}
       >
         <div className="menu">
-          <MainMenu />
+          {MainMenu}
         </div>
 
       </CSSTransition>
@@ -99,7 +97,7 @@ export function DropDownMenu (): React.ReactElement {
         onEnter={setHeightBeforeRender}
       >
         <div className="menu">
-          <SubMenu1 />
+          {SubMenu1}
         </div>
       </CSSTransition>
       <CSSTransition
@@ -110,7 +108,7 @@ export function DropDownMenu (): React.ReactElement {
         onEnter={setHeightBeforeRender}
       >
         <div className="menu">
-          <SubMenu2 />
+          {SubMenu2}
         </div>
       </CSSTransition>
     </div>
