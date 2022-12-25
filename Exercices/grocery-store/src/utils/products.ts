@@ -24,10 +24,11 @@ export const sortProductsByCategory = (products: Product[]): Product[] =>
     (product1: Product, product2: Product): number => product1.category - product2.category
   )
 
+const newEmptyCategorySet = (category: Category): CategorySet => ({ category, products: [], uuid: uuidv4() })
+
 export const categorize = (products: Product[]): CategorySet[] => {
   console.log('categorizing products...')
 
-  const newCategorySet = (category: Category): CategorySet => ({ category, products: [], uuid: uuidv4() })
   const sortedProducts = sortProductsByCategory(products)
 
   const categorizedProducts: CategorySet[] = []
@@ -38,7 +39,7 @@ export const categorize = (products: Product[]): CategorySet[] => {
   sortedProducts.forEach(
     (product) => {
       if (isFirstIteration() || categoryHasChanged(product.category)) {
-        currentCategorySet = newCategorySet(product.category)
+        currentCategorySet = newEmptyCategorySet(product.category)
         categorizedProducts.push(currentCategorySet)
       }
 
