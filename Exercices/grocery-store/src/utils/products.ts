@@ -13,7 +13,7 @@ export const reduceFilters = (products: Product[], filters: ProductFilter[]): Pr
     )
   }
 
-  const filterdProducts = [...products].filter(
+  const filterdProducts = products.filter(
     (product) => passedAllFilters(product)
   )
   return filterdProducts
