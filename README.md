@@ -33,32 +33,32 @@ The online road maps:
 - [Epic Web Articles](https://www.epicweb.dev/)
 
 ### Real Track
-|Day number|Date|What have I done?|
-|-|-|-|
-|1|-|-|
-|2|-|-|
-|3|-|-|
-|4|-|-|
-|5|-|-|
-|6|-|-|
-|7|-|-|
-|8|-|-|
-|9|-|-|
-|10|-|-|
-|11|-|-|
-|12|-|-|
-|13|-|-|
-|14|-|-|
-|15|-|-|
-|16|-|-|
-|17|-|-|
-|18|-|-|
-|19|-|-|
-|20|-|-|
-|21|-|-|
-|22|-|-|
-|23|-|-|
-|24|-|-|
+|Day number|Date|What have I done?|Topic|
+|-|-|-|-|
+|1|Nov 30 (Wedensday)|The Full Stack Developer C.1-2|Background|
+|2|Dec 6 (Tuesday)|The Full Stack Developer C.3-5|Background|
+|3|Dec 8 (Thursday)|The Full Stack Developer C.6,9<br>---------<br>**CV**|HTML & CSS|
+|4|Dec 12 (Monday)|mdn getting started with the web (Quote Me specification)|HTML & CSS|
+|5|Dec 13 (Tuesday)|**Quote Me**: HTML and CSS|HTML & CSS|
+|6|Dec 15 (Thursday)|W3School DOM tutorial<br>---------<br>**Navbar**: Basic navigation bar|React|
+|7|Dec 19 (Monday)|**Navbar**|React|
+|8|Dec 20 (Tuesday)|**Grocery-Store**<br>---------<br>**Navbar**: add linters|React|
+|9|Dec 21 (Wedensday)|**Grocery-Store** and **Navbar**: CR fix and migrate to TypeScript|React|
+|10|Dec 22 (Thursday)|**Grocery-Store**: CR fix|React|
+|11|Dec 25,27 (Half Sunday, Half Tuesday)|**Grocery-Store** and **Navbar**: CR fix|React|
+|12|-|-|-|
+|13|-|-|-|
+|14|-|-|-|
+|15|-|-|-|
+|16|-|-|-|
+|17|-|-|-|
+|18|-|-|-|
+|19|-|-|-|
+|20|-|-|-|
+|21|-|-|-|
+|22|-|-|-|
+|23|-|-|-|
+|24|-|-|-|
 
 ### Plan
 
