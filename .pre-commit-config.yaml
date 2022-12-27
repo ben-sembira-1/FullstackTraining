@@ -14,3 +14,9 @@ repos:
       - id: conventional-pre-commit
         stages: [commit-msg]
         args: [] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
+  - repo: local
+    hooks:
+      - id: eslint-quote-me
+        name: eslint-quote-me
+        entry: bash -c "npx eslint --fix Exercises/quote-me"
+        language: node
