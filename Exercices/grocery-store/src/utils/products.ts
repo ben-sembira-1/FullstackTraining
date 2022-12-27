@@ -5,7 +5,7 @@ import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
-export const reduceFilters = (products: Product[], filters: ProductFilter[]): Product[] => {
+export const filterProducts = (products: Product[], filters: ProductFilter[]): Product[] => {
   console.log('Filtering products...')
   const passedAllFilters = (product: Product): boolean => {
     return filters.every(

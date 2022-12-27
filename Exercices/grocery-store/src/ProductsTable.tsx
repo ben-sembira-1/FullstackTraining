@@ -16,7 +16,6 @@ const CategoryTableSection: FunctionComponent<CategoryTableSectionProps> = (prop
   const categoryName = Category[props.category]
   const categoryNiceHeader = snakeCaseToCapitlizedHeader(categoryName)
   return <ProductsCategoryTableSection
-    key={props.productsSet.uuid}
     name={categoryNiceHeader}
     products={props.productsSet.products}
   />
@@ -30,7 +29,7 @@ const CategoryTableSectionList: FunctionComponent<CategoryTableSectionListProps>
   const sections: ReactElement[] = []
   props.categorizedProducts.forEach(
     (productsSet, category) => sections.push(
-      <CategoryTableSection category={category} productsSet={productsSet}/>
+      <CategoryTableSection key={productsSet.uuid} category={category} productsSet={productsSet}/>
     )
   )
   return <>{sections}</>
@@ -40,11 +39,15 @@ export const ProductsTable: FunctionComponent<ProductsTableProps> = (props) =>
   (
     <div className="products_list">
       <table>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-        <CategoryTableSectionList categorizedProducts={props.categorizedProducts}/>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <CategoryTableSectionList categorizedProducts={props.categorizedProducts} />
+        </tbody>
       </table>
     </div>
   )
