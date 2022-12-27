@@ -5,19 +5,11 @@ import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
-export const filterProducts = (products: Product[], filters: ProductFilter[]): Product[] => {
-  console.log('Filtering products...')
-  const passedAllFilters = (product: Product): boolean => {
-    return filters.every(
-      (currentFilter) => currentFilter(product)
+export const combineFilters = (filters: ProductFilter[]): ProductFilter =>
+  (product: Product) =>
+    filters.every(
+      (filter) => filter(product)
     )
-  }
-
-  const filterdProducts = products.filter(
-    (product) => passedAllFilters(product)
-  )
-  return filterdProducts
-}
 
 const newEmptyProductsSet = (): ProductsSet => ({ products: [], uuid: uuidv4() })
 
