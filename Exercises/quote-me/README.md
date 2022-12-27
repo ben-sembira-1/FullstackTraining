@@ -30,4 +30,3 @@ The *iconicity* of a person in this social network will be calculated by the amo
 ## Specification
 
 - There is a [specification](specification/specification.md) for this website. It is recomended to read it before going in to details.
-
