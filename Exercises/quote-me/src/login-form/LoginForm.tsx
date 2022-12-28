@@ -9,7 +9,7 @@ export const LoginForm: FunctionComponent = () => {
       <Input
         type={InputType.TEXT}
         label='username'
-        placeholder='git susername'
+        placeholder='username'
         onChange={setUsername}
         value={username === undefined ? '' : username}
       />
