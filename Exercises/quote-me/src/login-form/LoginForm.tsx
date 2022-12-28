@@ -1,7 +1,12 @@
 import React, { FunctionComponent, useState } from 'react'
+// import { logIn } from '../server-protocol/login'
 import { Input, InputType } from './Input/TextInput'
 
-export const LoginForm: FunctionComponent = () => {
+type LoginFormProps = {
+  onLogin: (username: string) => void
+}
+
+export const LoginForm: FunctionComponent<LoginFormProps> = (props) => {
   const [username, setUsername] = useState<string | undefined>(undefined)
   const [password, setPassword] = useState<string | undefined>(undefined)
   return (
@@ -16,13 +21,26 @@ export const LoginForm: FunctionComponent = () => {
 
       <Input
         type={InputType.PASSWORD}
-        label='password'
+        label='password (NOT SECURE)'
         placeholder='password'
         onChange={setPassword}
         value={password === undefined ? '' : password}
       />
-      <span><button>Login</button><button>Register</button></span>
-
+      <span>
+        <button
+          // onClick={
+          //   async () => {
+          //     await logIn(username, password)
+          //       .then((user) => props.onLogin(user))
+          //   }
+          // }
+        >
+        Login
+        </button>
+        <button>
+          Register
+        </button>
+      </span>
     </>
   )
 }
