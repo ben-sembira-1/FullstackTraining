@@ -10,3 +10,5 @@ export const HorizontalDiv: FunctionComponent<HorizontalDivProps> = (props) => (
     {props.children}
   </div>
 )
+
+export default HorizontalDiv
