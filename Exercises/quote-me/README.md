@@ -19,6 +19,7 @@ On each quote a user can react with:
 - like
 - superb
 - comments
+
 A user can see anytime quotes that he liked or comented on.
 
 The *iconicity* of a person in this social network will be calculated by the amount of quotes he has in the system, and the amount of likes/superbs his quotes got.
@@ -34,7 +35,6 @@ Each quote that is being uploaded will be public to all the users that are in th
 ## Steps
 
 ### Frontend
-1. Frontend - mock server with delay [internals]
 1. Frontend - Login screen (mock data) [independent screen]
 1. Frontend - Feed screen (mock data) [independent screen]
 1. Frontend - Upload button (mock data) [pop-up on the feed screen]
@@ -52,4 +52,5 @@ The app will give each user an option to choose its own privacy options:
 - specific groups
 - specific people
 - private
+
 Acording to those options, every time someone will upload a quote of a user, the people that will see it will be the people that the quoted user set in its privacey options.
