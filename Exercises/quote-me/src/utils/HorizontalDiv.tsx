@@ -1,11 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import './HorizontalDiv.css'
 
-type HorizontalDivProps = {
-  children: React.ReactElement | React.ReactElement[]
-}
-
-export const HorizontalDiv: FunctionComponent<HorizontalDivProps> = (props) => (
+export const HorizontalDiv: React.FC<React.PropsWithChildren> = (props) => (
   <div>
     {props.children}
   </div>
