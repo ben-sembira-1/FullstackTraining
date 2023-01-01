@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react'
 import { Product } from '../interfaces/products'
-import { ProductFilter, combineFilters } from '../utils/products'
+import { ProductFilter, intersectionFilter } from '../utils/products'
 import { TextInput, ToggleInput } from './Input'
 
 type SearchBarProps = {
@@ -24,7 +24,7 @@ export const SearchBar: FC<SearchBarProps> = (props) => {
   useEffect(
     () => {
       console.log('filtering products...')
-      const combinedFilter = combineFilters([searchFilter, stockedFilter])
+      const combinedFilter = intersectionFilter([searchFilter, stockedFilter])
       props.onFilteredProductsChange(props.allProducts.filter(combinedFilter))
     },
     [searchFilter, stockedFilter]

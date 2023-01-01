@@ -5,7 +5,7 @@ import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
-export const combineFilters = (filters: ProductFilter[]) =>
+export const intersectionFilter = (filters: ProductFilter[]) =>
   (product: Product) =>
     filters.every(
       (filter) => filter(product)
