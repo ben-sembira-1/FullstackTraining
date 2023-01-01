@@ -52,8 +52,8 @@ All the sources are located under the `documents/` folder. It contains:
 |9|Dec 21 (Wedensday)|**Grocery-Store** and **Navbar**: CR fix and migrate to TypeScript|React|
 |10|Dec 22 (Thursday)|**Grocery-Store**: CR fix|React|
 |11|Dec 25,27 (Half Sunday, Half Tuesday)|**Grocery-Store** and **Navbar**: CR fix|React|
-|12|-|-|-|
-|13|-|-|-|
+|12|Dec 28 (Wednesday)|**Quote Me**: login screen not styled|React|
+|13|Jan 1 (Wednesday)|**Quote Me**: login screen not styled|React|
 |14|-|-|-|
 |15|-|-|-|
 |16|-|-|-|
