@@ -34,7 +34,7 @@ export function DropDownMenu (): React.ReactElement {
     setMenuHeight(htmlElement.offsetHeight)
   }
 
-  // (jsx hack) This makes the onEnter of the first menu run. Just setting the initial state to be this, does not do it.
+  // (jsx hack) This makes the onEnter of the first menu run. Just setting the initial state to be this does not do it.
   useEffect(
     () => setActiveMenu('main-menu'),
     []
