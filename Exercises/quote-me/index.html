@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Iconic!</title>
+</head>
+
+<!--
+    HELP: I tried to use the BEM method here, but I encounterd some problems:
+
+    1.  The BEM method is: block-name_element-name_method-name,
+        but I read that the convention in the web is that
+        underscore(_) seperated words are mostly refered as a single
+        word, and hyphen(-) seperated words are mostly refered as multiple words.
+        Why is this? I am strugling to find a good solution, I have to abuse
+        the BEM convention or the web convention.
+
+    2.  How am I going to replacate those structures??
+
+    2.1     Similar to the previous question, but a bit different.
+            I want a lot of html files that represent components and not a huge
+            file with all the html in it. How can I do it??
+            Can I create a custom tag with attributes that will be
+            resolved in "compile" time?
+
+    3.  I want to keep the structure correct, and for all the links in the document to be anchor(<a>) tags.
+        But how can I do it with images? Am I doing it correct inthe profile-thumbnail objects?
+        Or should it be a label contained inside an anchor tag?
+-->
+
+<!--TODO: Change all profile links to a profile page instead of google-->
+
+<body>
+    <div class="top-row" horizontal>
+        <div class="top-row_logo logo">
+            <img class="logo_image" src="images/logo.png" alt="Website logo: speech bubble with apostrophes" />
+            <h1 class="logo_header">Iconic!</h1>
+        </div>
+
+
+        <p class="top-row_phrase">May the most bizarre, delusional and mad person win.</p>
+        <button class="top-row_new-quote button">Add a new quote</button>
+    </div>
+    <div class="content-section">
+        <div class="content-section_ranking ranking">
+            <h2 class="ranking_header">The Most Iconic</h2>
+            <ol class="ranking_list ranking-list">
+                <li class="ranking-list_single-rank rank">
+                    <div class="rank_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                        <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                        <lablel class="profile-thumbnail_name">
+                            <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
+                        </lablel>
+                    </div>
+                    <label class="rank_score">138 Points</label>
+                </li>
+                <li class="ranking-list_single-rank rank">
+                    <div class="rank_profile-thumbnail profile-thumbnail profile-thumbnail--compact">
+                        <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                        <lablel class="profile-thumbnail_name">
+                            <a href="https://www.google.com/search?q=Albert%20Einstein">Albert Einstein</a>
+                        </lablel>
+                    </div>
+                    <label class="rank_score">90 Points</label>
+                </li>
+            </ol>
+        </div>
+        <hr />
+        <div class="content-section_feed feed">
+            <h2>Quotes Feed</h2>
+            <div class="feed_sort-switch">
+                <!--HELP: What is the correct way for giving ids like here?-->
+                <input type="radio" id="feed_sort-switch__recent" name="feed_sort-switch" value="recent" checked />
+                <label for="feed_sort-switch__recent">Recent</label><br />
+                <input type="radio" id="feed_sort-switch__best" name="feed_sort-switch" value="best" />
+                <label for="feed_sort-switch__best">Best</label><br />
+            </div>
+            <ol class="feed_quotes quotes-list list">
+                <li class="quotes-list_single-quote quote-card">
+                    <div class="quote-card_quoted-person profile-thumbnail">
+                        <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                        <lablel class="profile-thumbnail_name profile-name">
+                            <a href="https://www.google.com/search?q=Julius%20Keisar">Julius Keisar</a>
+                        </lablel>
+                    </div>
+                    <p class="quote-card_content">
+                        <label>"</label>Sometimes I wish i was a bird, so I could just poop on random
+                        people.<label>"</label>
+                    </p>
+                    <time class="quote-card_timestamp" datetime="2022-11-18T14:54:39.929">1 month ago</time>
+                    <div class="quote-card_reactions reactions">
+                        <h3 class="reactions_header">Reactions</h3>
+                        <div class="reactions_like countable-button">
+                            <button class="countable-button_button button">Like</button>
+                            <label class="countable-button_count">4</label>
+                        </div>
+                        <div class="reactions_superb countable-button">
+                            <button class="countable-button_button button">Superb</button>
+                            <label class="countable-button_count">1</label>
+                        </div>
+                        <div class="reactions_comments comments">
+                            <h4 class="comments_header">Comments</h4>
+                            <label class="comments_count">1 comment</label>
+                            <!--HELP: I do not know how to call this using the BEM method :( So I am giving it a block name that is the same as the block_element.-->
+                            <ol class="comments_list comments-list list">
+                                <li class="comment-list_single-comment single-comment">
+                                    <div class="single-comment_commenter profile-thumbnail profile-thumbnail--compact">
+                                        <img class="profile-thumbnail_image" src="images/unkown-person-icon.png" />
+                                        <lablel class="profile-thumbnail_name">
+                                            <a href="https://www.google.com/search?q=Moshe%20Dayan">Moshe Dayan</a>
+                                        </lablel>
+                                    </div>
+                                    <p class="single-comment_content">Genious</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>

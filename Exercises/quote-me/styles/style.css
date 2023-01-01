@@ -1,0 +1,108 @@
+html {
+    font-size: 20px;
+    font-family: 'Jost', sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+ol {
+    padding: 0px 10px;
+}
+
+li {
+    list-style: none;
+}
+
+p,
+li {
+    font-size: 24px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+    /* padding: 0 20px 20px 20px; */
+    border: 1px solid black;
+}
+
+.button {
+    background-color: #9538B7;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color: #5a216f;
+    cursor: pointer;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    /* border-style: groove; */
+}
+
+.top-row * {
+    display: inline;
+    margin: 0 auto;
+}
+
+.logo_header {
+    margin: 0 auto;
+    padding: 20px 0;
+    color: #9538B7;
+    text-shadow: 3px 3px 5px #9538B7;
+}
+
+.top-row_new-quote {
+    font-size: 30px;
+}
+
+.content-section {
+    display: flex;
+}
+
+.content-section>* {
+    display: inline;
+    /* border-style: dashed; */
+    text-align: center;
+}
+
+.content-section_ranking {
+    flex: 1;
+}
+
+.content-section_feed {
+    flex: 4;
+}
+
+/* TODO: Change the width to something responsive */
+.profile-thumbnail_image {
+    width: 50px;
+    height: auto;
+}
+
+.rank,
+.quote-card {
+    border-top: 1px solid black;
+}
+
+.content-section_ranking {
+    padding: 0px;
+}
+
+.rank,
+.quote-card,
+.comments_list {
+    background-color: #ede5f0;
+    margin: 30px 0px;
+    border-radius: 20px;
+    /* border-style: double; */
+}
