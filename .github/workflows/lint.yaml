@@ -12,4 +12,7 @@ jobs:
       - name: install navbar
         working-directory: ./Exercises/navbar
         run: npm install
+      - name: install grocery-store
+        working-directory: ./Exercises/grocery-store
+        run: npm install
       - uses: pre-commit/action@v3.0.0
