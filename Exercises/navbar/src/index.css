@@ -1,0 +1,186 @@
+/*
+  HELP: I find it hard to explain why I did things in css without comments.
+        Is there a good way to do this?
+        Is creating CSS variables with explenatory names something people do?
+        I want the ability to create sort of "css macros" that contains multiple rules.
+*/
+
+/*
+  HELP: Is it possible to create multiple CSS files and "import" them in the main CSS file?
+*/
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --background-color: #091d04;
+  --background-accent: #123f09;
+  --button-color: #1c610e;
+  --mark-transitions-speed: 100ms;
+  --text-color: #e2e2e2;
+  --link-color: #c9c9c9;
+  --nav-size: 50px;
+  --border-size: 2px;
+  --border: var(--border-size) solid var(--background-accent);
+  --border-radius: 6px;
+  --nav-transition-spped: 400ms;
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.navbar {
+  height: var(--nav-size);
+  background-color: var(--background-accent);
+  padding: 0 1rem;
+  border-bottom: var(--border);
+}
+
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --button-size: calc(var(--nav-size) * 0.6);
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+}
+
+.item-button>* {
+  fill: var(--text-color);
+}
+
+.button {
+  background: none;
+  border: none;
+
+  background-color: var(--button-color);
+  transition: var(--mark-transitions-speed);
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.button:active {
+  filter: brightness(1.4);
+}
+
+.drop-down-menu {
+  position: absolute;
+  top: calc(var(--nav-size) + var(--border-size));
+  transform: translateX(-45%);
+  background-color: var(--button-color);
+
+  padding: 0.2rem;
+  border-radius: var(--border-radius);
+  border: var(--border);
+
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+
+  width: 300px;
+  overflow: hidden;
+  transition: height var(--nav-transition-spped) ease;
+}
+
+.drop-down-menu>*:hover {
+  cursor: pointer;
+}
+
+.drop-down-link-item {
+  height: 50px;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.drop-down-item-right-icon {
+  margin-left: auto;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-primary-enter {
+  transform: translateX(-100%);
+}
+
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+.menu-primary-exit {
+  position: absolute;
+  transform: translateX(0%);
+}
+
+.menu-primary-exit-active {
+  transform: translateX(-100%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(100%);
+}
+
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--nav-transition-spped) ease;
+}
+
+.menu-secondary-exit {
+  position: absolute;
+  transform: translateX(0);
+}
+
+.menu-secondary-exit-active {
+  transform: translateX(100%);
+  transition: all var(--nav-transition-spped) ease;
+}

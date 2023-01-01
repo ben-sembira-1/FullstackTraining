@@ -7,16 +7,38 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-added-large-files
-        args: ['--maxkb=1000']
+        args: ["--maxkb=1000"]
+
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v2.1.1
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
-        args: [wip, build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
+        args: [
+            wip,
+            build,
+            chore,
+            ci,
+            docs,
+            feat,
+            fix,
+            perf,
+            refactor,
+            revert,
+            style,
+            test,
+          ] # optional: list of Conventional Commits types to allow e.g. [feat, fix, ci, chore, test]
   - repo: local
     hooks:
       - id: eslint-quote-me
         name: eslint-quote-me
         entry: bash -c "cd Exercises/quote-me; npx eslint --fix ."
+        language: node
+      - id: eslint-grocery-store
+        name: eslint-grocery-store
+        entry: bash -c "cd ./Exercises/grocery-store; npx eslint --fix ."
+        language: node
+      - id: eslint-navbar
+        name: eslint-navbar
+        entry: bash -c "cd ./Exercises/navbar; npx eslint --fix ."
         language: node
