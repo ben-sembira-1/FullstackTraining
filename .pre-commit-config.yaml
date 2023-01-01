@@ -10,5 +10,5 @@ repos:
     hooks:
       - id: eslint-grocery-store
         name: eslint-grocery-store
-        entry: bash -c "cd ./Exercices/grocery-store; npx eslint --fix ."
+        entry: bash -c "cd ./Exercises/grocery-store; npx eslint --fix ."
         language: node

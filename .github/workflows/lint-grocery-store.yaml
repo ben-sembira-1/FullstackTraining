@@ -10,6 +10,6 @@ jobs:
       - uses: actions/setup-python@v3
       - uses: actions/setup-node@v3
       - name: install grocery-store
-        working-directory: ./Exercices/grocery-store
+        working-directory: ./Exercises/grocery-store
         run: npm install
       - uses: pre-commit/action@v3.0.0
