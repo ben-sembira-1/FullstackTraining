@@ -10,5 +10,5 @@ repos:
     hooks:
       - id: eslint-navbar
         name: eslint-navbar
-        entry: bash -c "cd ./Exercices/navbar; npx eslint --fix ."
+        entry: bash -c "cd ./Exercises/navbar; npx eslint --fix ."
         language: node
