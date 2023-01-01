@@ -1,4 +1,4 @@
-name: pre-commit-grocery-store
+name: pre-commit-navbar
 
 on: [pull_request, push]
 
@@ -9,6 +9,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - uses: actions/setup-node@v3
+      - name: install navbar
+        working-directory: ./Exercises/navbar
+        run: npm install
       - name: install grocery-store
         working-directory: ./Exercises/grocery-store
         run: npm install
