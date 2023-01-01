@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
-import { User } from '../interfaces/user'
-import { logIn } from '../server-protocol/login'
+import { User } from '../../interfaces/user'
+import { logIn } from '../../server-protocol/login'
 import { Input, InputType } from './Input/TextInput'
 
 import './LoginForm.css'
