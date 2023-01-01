@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { FilterableProductTable } from './FilterableProductTable'
 import { DBProductEntry } from './interfaces/dbEntry'
-import { Product } from './interfaces/products'
 import { createProductFromDBEntry } from './utils/products'
 
-const fetchDB = (): DBProductEntry[] => {
+const fetchDB = () => {
   const products: DBProductEntry[] = []
   for (let basePrice = 0; basePrice < 3; basePrice++) {
     [{ category: 'FRUITS', priceDollars: 1, stocked: true, name: 'Apple' },
@@ -23,11 +22,11 @@ const fetchDB = (): DBProductEntry[] => {
   return products
 }
 
-const getProductsFromDB = (): Product[] => {
+const getProductsFromDB = () => {
   const dbData = fetchDB()
   return dbData.map((dpEntry) => createProductFromDBEntry(dpEntry))
 }
 
-const App: FunctionComponent = () => <FilterableProductTable products={getProductsFromDB()} />
+const App = () => <FilterableProductTable products={getProductsFromDB()} />
 
 export default App

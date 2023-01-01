@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { SearchBar } from './search-section/SearchBar'
 import { ProductsTable } from './ProductsTable'
 import { Product } from './interfaces/products'
@@ -8,7 +8,7 @@ type FilterableProductTableProps = {
   products: Product[]
 }
 
-export const FilterableProductTable: FunctionComponent<FilterableProductTableProps> = ({ products }) => {
+export const FilterableProductTable: FC<FilterableProductTableProps> = ({ products }) => {
   const [searchBarFilterdProducts, setSearchBarFilterdProducts] = useState<Product[]>([])
   return (
     <>

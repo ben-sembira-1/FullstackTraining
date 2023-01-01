@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useEffect, useState } from 'react'
+import React, { FC, useCallback, useEffect, useState } from 'react'
 import { Product } from '../interfaces/products'
 import { ProductFilter, combineFilters } from '../utils/products'
 import { TextInput, ToggleInput } from './Input'
@@ -8,7 +8,7 @@ type SearchBarProps = {
   onFilteredProductsChange: (filteredProducts: Product[]) => void
 }
 
-export const SearchBar: FunctionComponent<SearchBarProps> = (props) => {
+export const SearchBar: FC<SearchBarProps> = (props) => {
   const [searchValue, setSearchValue] = useState('')
   const [onlyInStock, setOnlyInStock] = useState(false)
 

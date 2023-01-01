@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FC } from 'react'
 import { Product } from './interfaces/products'
 import { ProductTableRow } from './ProductTableRow'
 
@@ -7,7 +7,7 @@ type ProductsCategoryTableSectionProps = {
   products: Product[]
 }
 
-export const ProductsCategoryTableSection: FunctionComponent<ProductsCategoryTableSectionProps> = (props) => {
+export const ProductsCategoryTableSection: FC<ProductsCategoryTableSectionProps> = (props) => {
   return (
     <>
       <tr>

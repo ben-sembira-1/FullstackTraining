@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { Category, ProductsSet } from './interfaces/products'
 import { ProductsCategoryTableSection } from './ProductsCategoryTableSection'
 import { snakeCaseToCapitlizedHeader } from './utils/strings'
@@ -12,7 +12,7 @@ type CategoryTableSectionProps = {
   productsSet: ProductsSet
 }
 
-const CategoryTableSection: FunctionComponent<CategoryTableSectionProps> = (props) => {
+const CategoryTableSection: FC<CategoryTableSectionProps> = (props) => {
   const categoryName = Category[props.category]
   const categoryNiceHeader = snakeCaseToCapitlizedHeader(categoryName)
   return <ProductsCategoryTableSection
@@ -25,7 +25,7 @@ type CategoryTableSectionListProps = {
   categorizedProducts: Map<Category, ProductsSet>
 }
 
-const CategoryTableSectionList: FunctionComponent<CategoryTableSectionListProps> = (props) => {
+const CategoryTableSectionList: FC<CategoryTableSectionListProps> = (props) => {
   const sections: ReactElement[] = []
   props.categorizedProducts.forEach(
     (productsSet, category) => sections.push(
@@ -35,7 +35,7 @@ const CategoryTableSectionList: FunctionComponent<CategoryTableSectionListProps>
   return <>{sections}</>
 }
 
-export const ProductsTable: FunctionComponent<ProductsTableProps> = (props) =>
+export const ProductsTable: FC<ProductsTableProps> = (props) =>
   (
     <div className="products_list">
       <table>

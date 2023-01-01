@@ -5,7 +5,7 @@ import { toUpperSnakeCase } from './strings'
 
 export type ProductFilter = (p: Product) => boolean
 
-export const combineFilters = (filters: ProductFilter[]): ProductFilter =>
+export const combineFilters = (filters: ProductFilter[]) =>
   (product: Product) =>
     filters.every(
       (filter) => filter(product)
@@ -13,7 +13,7 @@ export const combineFilters = (filters: ProductFilter[]): ProductFilter =>
 
 const newEmptyProductsSet = (): ProductsSet => ({ products: [], uuid: uuidv4() })
 
-export const categorize = (products: Product[]): Map<Category, ProductsSet> => {
+export const categorize = (products: Product[]) => {
   console.log('categorizing products...')
   const categorizedProducts = new Map<Category, ProductsSet>()
   products.forEach(
@@ -39,11 +39,10 @@ const InvalidCategory = Object.create(Error)
 
 const stringToCategory = (s: string): Category => {
   const upperSnakeCaseString = toUpperSnakeCase(s)
-  if (stringIsCategory(upperSnakeCaseString)) {
-    return Category[upperSnakeCaseString]
-  } else {
+  if (!stringIsCategory(upperSnakeCaseString)) {
     throw InvalidCategory(`${s} is not a valid category`)
   }
+  return Category[upperSnakeCaseString]
 }
 
 export const createProductFromDBEntry = (dbEntry: DBProductEntry): Product => {

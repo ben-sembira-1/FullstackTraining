@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useId } from 'react'
+import React, { FC, useId } from 'react'
 
 type TextInputProps = {
   value: string
@@ -6,7 +6,7 @@ type TextInputProps = {
   placeholder?: string
 }
 
-export const TextInput: FunctionComponent<TextInputProps> = (props) => {
+export const TextInput: FC<TextInputProps> = (props) => {
   return (
     <div>
       <input
@@ -24,7 +24,7 @@ type ToggleInputProps = {
   label: string
 }
 
-export const ToggleInput: FunctionComponent<ToggleInputProps> = (props) => {
+export const ToggleInput: FC<ToggleInputProps> = (props) => {
   const id = useId()
   return (
     <div>
