@@ -27,7 +27,7 @@ export function DropDownMenu (): React.ReactElement {
   const UNMOUNT_TIMEOUT = 500
 
   const [activeMenu, setActiveMenu] = useState<string>('')
-  const [menuHeight, setMenuHeight] = useState<any>(null)
+  const [menuHeight, setMenuHeight] = useState<number>(0)
 
   const setHeightBeforeRender = (htmlElement: { offsetHeight: number }): void => {
     console.log(`Setting height to: ${htmlElement.offsetHeight}`)
