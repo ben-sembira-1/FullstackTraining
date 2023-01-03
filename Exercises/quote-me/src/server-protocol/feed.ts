@@ -7,7 +7,10 @@ const fetchAllQuotes = (): Quote[] => {
   return [
     { quote: 'Pil yam ze lo pil ragil', quoted: ori, date: new Date(), reporter: ben, uuid: 'quote-1' },
     { quote: 'Ma ze, tavi li od shauarma!', quoted: ori, date: new Date(), reporter: ben, uuid: 'quote-2' },
-    { quote: 'Ani lo yodea kod', quoted: ben, date: new Date(), reporter: ori, uuid: 'quote-3' }
+    { quote: 'Ani lo yodea kod', quoted: ben, date: new Date(), reporter: ori, uuid: 'quote-3' },
+    { quote: 'Pil yam ze lo pil ragil', quoted: ori, date: new Date(), reporter: ben, uuid: 'quote-4' },
+    { quote: 'Ma ze, tavi li od shauarma!', quoted: ori, date: new Date(), reporter: ben, uuid: 'quote-5' },
+    { quote: 'Ani lo yodea kod', quoted: ben, date: new Date(), reporter: ori, uuid: 'quote-6' }
   ]
 }
 
