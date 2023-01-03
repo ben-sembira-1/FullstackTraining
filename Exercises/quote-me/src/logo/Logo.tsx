@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import logoImage from './logo.png'
+import logoImage from './logo-trimmed.png'
 import './Logo.css'
 
 export const Logo: FunctionComponent = () => (

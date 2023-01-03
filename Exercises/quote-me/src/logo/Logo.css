@@ -3,20 +3,20 @@
     justify-content: center;
     align-items: flex-end;
     flex-direction: row;
-    height: auto;
+    height: 100%;
     width: auto;
     padding: 1rem;
     flex-wrap: wrap;
-    gap: 0;
+    gap: 0.2em;
 }
 
 .logo_image {
     background-color: white;
-    height: 4rem;
+    height: 3em;
     width: auto;
 }
 
 h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1em;
 }
