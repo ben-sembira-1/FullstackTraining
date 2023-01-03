@@ -31,14 +31,17 @@ repos:
   - repo: local
     hooks:
       - id: eslint-quote-me
+        files: '^Exercises/quote-me/.*$'
         name: eslint-quote-me
         entry: bash -c "cd Exercises/quote-me; npx eslint --fix ."
         language: node
       - id: eslint-grocery-store
+        files: '^Exercises/grocery-store/.*$'
         name: eslint-grocery-store
         entry: bash -c "cd ./Exercises/grocery-store; npx eslint --fix ."
         language: node
       - id: eslint-navbar
+        files: '^Exercises/navbar/.*$'
         name: eslint-navbar
         entry: bash -c "cd ./Exercises/navbar; npx eslint --fix ."
         language: node
