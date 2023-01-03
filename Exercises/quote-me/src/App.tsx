@@ -5,8 +5,7 @@ import User from './interfaces/user'
 import Login from './login/Login'
 
 const App: FunctionComponent = () => {
-  const temp = { firstName: 'Yoel', lastName: 'Basin', uuid: 'temp-yoel', photoUrl: 'http://www.matnasgan.org.il/html5/web/4450/28047ImageFile2.png' }
-  const [connectedUser, setConnectedUser] = useState<User | undefined>(temp)
+  const [connectedUser, setConnectedUser] = useState<User | undefined>(undefined)
   return (
     <ConnectedUser.Provider value={connectedUser}>
       {
