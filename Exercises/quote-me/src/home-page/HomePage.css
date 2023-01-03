@@ -1,10 +1,11 @@
 .home_page {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 7fr;
+  grid-template-rows: 7rem 1fr;
   grid-template-areas:
     "top_row        top_row   top_row"
     "hall_of_fame   feed      feed";
+  gap: 1rem;
 }
 
 .top_row_container {

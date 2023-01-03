@@ -16,7 +16,7 @@
     width: auto;
 }
 
-h1 {
+.logo h1 {
     margin: 0;
-    font-size: 1em;
+    font-size: 1.2em;
 }
