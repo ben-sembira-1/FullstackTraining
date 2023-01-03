@@ -1,20 +1,39 @@
 .top_row {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   height: 100%;
   font-size: 1rem;
   overflow: hidden;
   padding: 1rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .top_row-logo {
-  grid-column: 1
+  grid-column: 1;
 }
 
 .top_row-phrase {
   grid-column: 2;
 }
 
+.top_row-add_new_button {
+  grid-column: 3;
+
+  width: auto;
+  padding: 0.5rem;
+
+  background-color: #9538B7;
+  color: white;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+}
+
+.top_row-add_new_button:hover {
+  background-color: #5a216f;
+  cursor: pointer;
+}
+
 .top_row-user_thumbnail {
-  grid-column: 3
+  grid-column: 4;
 }
