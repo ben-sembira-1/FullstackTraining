@@ -1,9 +1,9 @@
 import React from 'react'
+import Feed from './feed/Feed'
 import './HomePage.css'
 import TopRow from './top-row/TopRow'
 
-const HallOfFame = () => <h1>The Most Iconic Here</h1>
-const Feed = () => <h1>Feed Here</h1>
+const HallOfFame = () => <h1>The Most Iconic...</h1>
 
 const HomePage = () => {
   return (
