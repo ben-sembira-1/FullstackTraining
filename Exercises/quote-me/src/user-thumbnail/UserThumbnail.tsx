@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import User from '../interfaces/user'
 
 import './UserThumbnail.css'
@@ -8,19 +8,10 @@ type UserThumbnailProps = {
 }
 
 const UserThumbnail: React.FC<UserThumbnailProps> = (props) => {
-  const [dropDownOpen, setDropDownOpen] = useState(false)
   return (
-    <div className='profile_nav'>
-      <div className='profile_thumnail' onClick={() => setDropDownOpen((oldValue) => !oldValue)}>
-        <img className='profile_thumnail-image' src={props.user.photoUrl}/>
-        <label className='profile_thumnail-name'>{props.user.firstName}</label>
-      </div>
-      {
-        dropDownOpen &&
-        <div className='profile_dropdown'>
-          Dropdown here
-        </div>
-      }
+    <div className='profile_thumnail'>
+      <img className='profile_thumnail-image' src={props.user.photoUrl}/>
+      <label className='profile_thumnail-name'>{props.user.firstName}</label>
     </div>
   )
 }
