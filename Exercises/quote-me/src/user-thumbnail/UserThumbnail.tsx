@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ConnectedUser } from '../contexts'
-import { User } from '../interfaces/user'
+import User from '../interfaces/user'
 
 import './UserThumbnail.css'
 

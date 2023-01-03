@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { User } from '../interfaces/user'
+import User from '../interfaces/user'
 
 const serverQueryMock = async (request: string, answer: string, timeoutms: number = 200): Promise<string> => {
   console.log(`fetching the request: ${request}`)

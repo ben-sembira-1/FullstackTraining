@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { User } from '../interfaces/user'
+import User from '../interfaces/user'
 import { LoginForm } from './login-form/LoginForm'
 import { Logo } from '../logo/Logo'
 import HorizontalDiv from '../utils/HorizontalDiv/HorizontalDiv'
