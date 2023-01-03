@@ -16,7 +16,7 @@ const TopRow = () => {
       <div className='top_row-phrase'>
         May the most bizarre, delusional and mad person win.
       </div>
-      <button className='top_row-add_new_button'>Add New Quote</button>
+      <button className='top_row-add_new_button dark_button'>Add New Quote</button>
       <div className='top_row-user_thumbnail'>
         {
           connectedUser !== undefined

@@ -18,19 +18,9 @@
 
 .top_row-add_new_button {
   grid-column: 3;
-
   width: auto;
   padding: 0.5rem;
-
-  background-color: var(--theme-dark);
-  color: white;
   border-radius: 0.5rem;
-  border: 1px solid black;
-}
-
-.top_row-add_new_button:hover {
-  filter: brightness(1.1);
-  cursor: pointer;
 }
 
 .top_row-user_thumbnail {

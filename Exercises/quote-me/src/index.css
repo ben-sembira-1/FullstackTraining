@@ -17,3 +17,19 @@ html, body, #root {
 :root {
   --theme-dark: #9538B7
 }
+
+.dark_button {
+  background-color: var(--theme-dark);
+  color: white;
+  border: 1px solid black;
+}
+
+.dark_button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.dark_button:active {
+  filter: brightness(1.2);
+  cursor: pointer;
+}
