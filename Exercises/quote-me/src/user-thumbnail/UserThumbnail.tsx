@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react'
-import { ConnectedUser } from '../contexts'
+import React, { useState } from 'react'
 import User from '../interfaces/user'
 
 import './UserThumbnail.css'
 
-type ValidUserThumbnailProps = {
+type UserThumbnailProps = {
   user: User
 }
 
-const ValidUserThumbnail: React.FC<ValidUserThumbnailProps> = (props) => {
+const UserThumbnail: React.FC<UserThumbnailProps> = (props) => {
   const [dropDownOpen, setDropDownOpen] = useState(false)
   return (
     <div className='profile_nav'>
@@ -23,20 +22,6 @@ const ValidUserThumbnail: React.FC<ValidUserThumbnailProps> = (props) => {
         </div>
       }
     </div>
-  )
-}
-
-const UserThumbnail = () => {
-  const connectedUser = useContext(ConnectedUser)
-
-  return (
-    <>
-      {
-        connectedUser !== undefined
-          ? <ValidUserThumbnail user={connectedUser}/>
-          : null
-      }
-    </>
   )
 }
 

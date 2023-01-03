@@ -4,8 +4,9 @@
 }
 
 .profile_thumnail-image {
+  object-fit: cover;
   height: 3rem;
-  width: auto;
+  width: 3rem;
   border-radius: 50%;
 }
 
