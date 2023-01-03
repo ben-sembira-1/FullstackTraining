@@ -1,4 +1,4 @@
-name: pre-commit-navbar
+name: lint (pre-commit)
 
 on: [pull_request, push]
 
@@ -14,5 +14,8 @@ jobs:
         run: npm install
       - name: install grocery-store
         working-directory: ./Exercises/grocery-store
+        run: npm install
+      - name: install quote-me
+        working-directory: ./Exercises/quote-me
         run: npm install
       - uses: pre-commit/action@v3.0.0

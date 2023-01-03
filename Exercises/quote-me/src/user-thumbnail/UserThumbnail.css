@@ -1,0 +1,21 @@
+.profile_thumnail {
+  gap: 0;
+  width: auto;
+}
+
+.profile_thumnail-image {
+  object-fit: cover;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.profile_thumnail-name {
+  font-size: 1rem;
+}
+
+.profile_dropdown {
+  position: absolute;
+  height: auto;
+  top: 0;
+}
