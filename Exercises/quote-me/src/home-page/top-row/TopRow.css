@@ -1,0 +1,16 @@
+.top_row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.top_row-logo {
+  grid-column: 1
+}
+
+.top_row-phrase {
+  grid-column: 2;
+}
+
+.top_row-user_thumbnail {
+  grid-column: 3
+}

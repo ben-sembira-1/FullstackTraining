@@ -1,20 +1,20 @@
 import React from 'react'
 import './HomePage.css'
+import TopRow from './top-row/TopRow'
 
-const TopRow = () => <h1>Top Row Here</h1>
 const HallOfFame = () => <h1>The Most Iconic Here</h1>
 const Feed = () => <h1>Feed Here</h1>
 
 const HomePage = () => {
   return (
     <div className='home_page'>
-      <div className='top_row'>
+      <div className='top_row_container'>
         <TopRow/>
       </div>
-      <div className='hall_of_fame'>
+      <div className='hall_of_fame_container'>
         <HallOfFame/>
       </div>
-      <div className='feed'>
+      <div className='feed_container'>
         <Feed/>
       </div>
     </div>

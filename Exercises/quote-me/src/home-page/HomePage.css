@@ -1,23 +1,20 @@
 .home_page {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 13fr;
   grid-template-areas:
-    "top_row        top_row"
-    "hall_of_fame   feed"
+    "top_row        top_row   top_row"
+    "hall_of_fame   feed      feed"
 }
 
-.top_row {
-  background: green;
+.top_row_container {
   grid-area: top_row;
 }
 
-.hall_of_fame {
-  background: red;
+.hall_of_fame_container {
   grid-area: hall_of_fame;
 }
 
-.feed {
-  background: blue;
+.feed_container {
   grid-area: feed;
 }
