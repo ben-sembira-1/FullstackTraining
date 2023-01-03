@@ -1,9 +1,8 @@
 import React from 'react'
 import Logo from '../../logo/Logo'
+import UserThumbnail from '../../user-thumbnail/UserThumbnail'
 
 import './TopRow.css'
-
-const UserThumbnail = () => <h1>photo</h1>
 
 const TopRow = () => {
   return (
