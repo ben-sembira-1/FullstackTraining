@@ -22,7 +22,7 @@ const checkNotEmpty = (username: string, password: string): void => {
 
 export const logIn = async (username: string, password: string): Promise<User> => {
   checkNotEmpty(username, password)
-  const exampleUser: User = { firstName: 'Yoel', lastName: 'Basin', uuid: uuidv4(), photoUrl: 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.matnasgan.org.il%2Fhtml5%2FEventproLookup.taf%3Ffunction%3Ddetails%26_ID%3D28047%26did%3D4450%26G%3D%26SM%3D&psig=AOvVaw1dXe9cD32_Mf_Qx5s4WUVc&ust=1672315643798000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDElbGjnPwCFQAAAAAdAAAAABAE' }
+  const exampleUser: User = { firstName: 'Yoel', lastName: 'Basin', uuid: uuidv4(), photoUrl: 'http://www.matnasgan.org.il/html5/web/4450/28047ImageFile2.png' }
   const answer = password !== 'pass' || username !== 'yoel' ? '' : JSON.stringify(exampleUser)
   const userRepr = await serverQueryMock(`request: login to ${username} with password: ${password}`, answer)
   if (userRepr === '') {
