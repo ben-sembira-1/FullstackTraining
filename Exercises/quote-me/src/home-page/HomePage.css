@@ -17,5 +17,8 @@
 }
 
 .feed_container {
+  display: flex;
   grid-area: feed;
+  overflow-y: scroll;
+  justify-content: flex-start;
 }

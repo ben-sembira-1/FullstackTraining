@@ -1,0 +1,8 @@
+.quotes_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  justify-items: center;
+  scroll-behavior: smooth;
+  height: auto;
+}

@@ -13,3 +13,7 @@ code {
 html, body, #root {
   height: 100%;
 }
+
+:root {
+  --theme-dark: #9538B7
+}

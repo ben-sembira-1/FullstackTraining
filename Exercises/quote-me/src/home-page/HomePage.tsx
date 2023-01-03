@@ -1,5 +1,5 @@
 import React from 'react'
-import Feed from './feed/Feed'
+import QuotesList from './quotes-list/QuotesList'
 import './HomePage.css'
 import TopRow from './top-row/TopRow'
 
@@ -15,7 +15,7 @@ const HomePage = () => {
         <HallOfFame/>
       </div>
       <div className='feed_container'>
-        <Feed/>
+        <QuotesList/>
       </div>
     </div>
   )

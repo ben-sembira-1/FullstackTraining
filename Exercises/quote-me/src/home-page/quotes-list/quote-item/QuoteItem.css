@@ -1,0 +1,40 @@
+.quote_item {
+  background: #eee;
+  border-radius: 0.5rem;
+  width: 90%;
+  height: auto;
+
+  display: grid;
+  gap: 0.2rem;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: minmax(4rem, 1fr) 2rem;
+  grid-template-areas:
+  'metadata   quote     reporter'
+  'comments   comments  comments';
+}
+
+.quote_item-metadata {
+  grid-area: metadata;
+  /* background-color: pink; */
+}
+
+.quote_item-quote {
+  --border: solid 0.01rem black;
+  grid-area: quote;
+  border-left: var(--border);
+  border-right: var(--border);
+  /* background-color: red; */
+}
+
+.quote_item-reporter {
+  grid-area: reporter;
+  /* background-color: green; */
+}
+
+.quote_item-comments {
+  grid-area: comments;
+  background-color: inherit;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  filter: brightness(0.9);
+}

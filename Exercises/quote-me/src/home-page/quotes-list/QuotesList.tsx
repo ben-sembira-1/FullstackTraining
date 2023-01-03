@@ -3,7 +3,9 @@ import Quote from '../../interfaces/quote'
 import fetchAllQuotes from '../../server-protocol/feed'
 import QuoteItem from './quote-item/QuoteItem'
 
-const Feed = () => {
+import './QuotesList.css'
+
+const QuotesList = () => {
   const [feed, setFeed] = useState<Quote[]>([])
   useEffect(
     () => {
@@ -12,7 +14,7 @@ const Feed = () => {
     []
   )
   return (
-    <div>
+    <div className='quotes_list'>
       {feed.map(
         (quote) => <QuoteItem key={quote.uuid} quote={quote}/>
       )}
@@ -20,4 +22,4 @@ const Feed = () => {
   )
 }
 
-export default Feed
+export default QuotesList

@@ -4,7 +4,6 @@
   height: 100%;
   font-size: 1rem;
   overflow: hidden;
-  padding: 1rem;
   justify-items: center;
   align-items: center;
 }
@@ -23,14 +22,14 @@
   width: auto;
   padding: 0.5rem;
 
-  background-color: #9538B7;
+  background-color: var(--theme-dark);
   color: white;
   border-radius: 0.5rem;
   border: 1px solid black;
 }
 
 .top_row-add_new_button:hover {
-  background-color: #5a216f;
+  filter: brightness(1.1);
   cursor: pointer;
 }
 
