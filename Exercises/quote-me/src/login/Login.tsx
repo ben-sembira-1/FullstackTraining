@@ -1,12 +1,11 @@
 import React, { FunctionComponent, useState } from 'react'
-import User from '../interfaces/user'
-import { LoginForm } from './login-form/LoginForm'
 import { Logo } from '../logo/Logo'
 import HorizontalDiv from '../utils/HorizontalDiv/HorizontalDiv'
-
-import './Login.css'
-import { logIn } from '../server-protocol/login'
+import { LoginForm } from './login-form/LoginForm'
 import RegisterForm from './register-form/RegisterForm'
+import { logIn } from '../server-protocol/login'
+import User from '../interfaces/user'
+import './Login.css'
 
 enum LoginPhase {
   LOGIN,
@@ -36,10 +35,6 @@ const Login: FunctionComponent<LoginProps> = (props) => {
       })
   }
 
-  const registerAttempt = (user: User, password: string) => {
-    console.log('Register attempt')
-  }
-
   return (
     <HorizontalDiv>
       <div className='logo_container'>
@@ -49,11 +44,12 @@ const Login: FunctionComponent<LoginProps> = (props) => {
         loginPhase === LoginPhase.LOGIN
           ? <LoginForm
             onLogin={loginAttempt}
-            onRegister={() => setLoginPhase(LoginPhase.REGISTER)}
+            onRegister={() => { setErrorMessage(NO_ERROR); setLoginPhase(LoginPhase.REGISTER) }}
           />
           : <RegisterForm
-            onRegister={registerAttempt}
-            onLogin={() => setLoginPhase(LoginPhase.LOGIN)}
+            onRegister={() => setLoginPhase(LoginPhase.LOGIN)}
+            onLogin={() => { setErrorMessage(NO_ERROR); setLoginPhase(LoginPhase.LOGIN) }}
+            onError={setErrorMessage}
           />
       }
       <div className='error_message'>{errorMessage === NO_ERROR ? null : errorMessage}</div>

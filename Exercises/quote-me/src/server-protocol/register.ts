@@ -3,10 +3,10 @@ import User from '../interfaces/user'
 
 const gAllUsernames: string[] = []
 
-class InvalidRegisterDetails extends Error {
+export class InvalidRegisterDetails extends Error {
   constructor (couse?: string) {
     super()
-    this.cause = couse
+    this.cause = couse !== undefined ? couse : 'Unkown problem with registers details'
   }
 }
 
