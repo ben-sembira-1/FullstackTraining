@@ -5,7 +5,7 @@ export enum InputType {
   TEXT = 'text'
 }
 
-type TextInputProps = {
+type InputProps = {
   label: string
   placeholder: string
   onChange: (s: string) => void
@@ -13,7 +13,7 @@ type TextInputProps = {
   type: InputType
 }
 
-export const Input: FunctionComponent<TextInputProps> = (props) => {
+export const Input: FunctionComponent<InputProps> = (props) => {
   const id = useId()
   return (
     <>
