@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from 'uuid'
 import User from '../interfaces/user'
+import { gAllUsers } from './register'
 
 const serverQueryMock = async (request: string, answer: string, timeoutms: number = 200): Promise<string> => {
   console.log(`fetching the request: ${request}`)
@@ -22,8 +22,9 @@ const checkNotEmpty = (username: string, password: string): void => {
 
 export const logIn = async (username: string, password: string): Promise<User> => {
   checkNotEmpty(username, password)
-  const exampleUser: User = { firstName: 'Yoel', lastName: 'Basin', username: 'yoel', uuid: uuidv4(), photoUrl: 'http://www.matnasgan.org.il/html5/web/4450/28047ImageFile2.png' }
-  const answer = password !== 'pass' || username !== 'yoel' ? '' : JSON.stringify(exampleUser)
+  const answer = (gAllUsers.has(username) && gAllUsers.get(username)?.password === password)
+    ? JSON.stringify(gAllUsers.get(username)?.user)
+    : ''
   const userRepr = await serverQueryMock(`request: login to ${username} with password: ${password}`, answer)
   if (userRepr === '') {
     throw new WrongCredentialsError('Wrong Password or Username')

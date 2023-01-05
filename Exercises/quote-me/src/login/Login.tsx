@@ -3,7 +3,6 @@ import { Logo } from '../logo/Logo'
 import HorizontalDiv from '../utils/HorizontalDiv/HorizontalDiv'
 import { LoginForm } from './login-form/LoginForm'
 import RegisterForm from './register-form/RegisterForm'
-import { logIn } from '../server-protocol/login'
 import User from '../interfaces/user'
 import './Login.css'
 
@@ -25,16 +24,6 @@ const Login: FunctionComponent<LoginProps> = (props) => {
   const [errorMessage, setErrorMessage] = useState<string | typeof NO_ERROR>(NO_ERROR)
   const [loginPhase, setLoginPhase] = useState<LoginPhase>(LoginPhase.LOGIN)
 
-  const loginAttempt = (username: string, password: string) => {
-    setErrorMessage(NO_ERROR)
-    logIn(username, password)
-      .then((user) => props.onLogin(user))
-      .catch((reason) => {
-        props.onLogin(undefined)
-        setErrorMessage(reason.cause !== undefined ? reason.cause : 'Unknown error')
-      })
-  }
-
   return (
     <HorizontalDiv>
       <div className='logo_container'>
@@ -43,11 +32,12 @@ const Login: FunctionComponent<LoginProps> = (props) => {
       {
         loginPhase === LoginPhase.LOGIN
           ? <LoginForm
-            onLogin={loginAttempt}
+            onLogin={ (user) => { setErrorMessage(NO_ERROR); props.onLogin(user) }}
             onRegister={() => { setErrorMessage(NO_ERROR); setLoginPhase(LoginPhase.REGISTER) }}
+            onError={setErrorMessage}
           />
           : <RegisterForm
-            onRegister={() => setLoginPhase(LoginPhase.LOGIN)}
+            onRegister={() => { setErrorMessage(NO_ERROR); setLoginPhase(LoginPhase.LOGIN) }}
             onLogin={() => { setErrorMessage(NO_ERROR); setLoginPhase(LoginPhase.LOGIN) }}
             onError={setErrorMessage}
           />

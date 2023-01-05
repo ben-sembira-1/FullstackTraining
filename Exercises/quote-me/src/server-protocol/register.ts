@@ -1,7 +1,12 @@
+import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
 import User from '../interfaces/user'
 
-const gAllUsernames: string[] = []
+type UserWithPassword = {
+  user: User
+  password: string
+}
+export const gAllUsers: Map<string, UserWithPassword> = new Map<string, UserWithPassword>()
 
 export class InvalidRegisterDetails extends Error {
   constructor (couse?: string) {
@@ -35,7 +40,7 @@ const checkImageValidity = async (url: string) => {
 
 const checkUsernameNotInUse = async (username: string) => {
   await setTimeout(() => {
-    if (gAllUsernames.includes(username)) throw new UsernameInUseError()
+    if (gAllUsers.has(username)) throw new UsernameInUseError()
   }, 200)
 }
 
@@ -48,8 +53,18 @@ const checkUserValidity = async (user: User) => {
 }
 
 const createNewUserRequest = async (user: User, password: string) => {
-  return await new Promise<void>((resolve) => setTimeout(() => {
-    gAllUsernames.push(user.username)
+  return await new Promise<void>((resolve, reject) => setTimeout(() => {
+    if (gAllUsers.has(user.username)) {
+      reject(new UsernameInUseError())
+    }
+
+    gAllUsers.set(user.username, {
+      user: {
+        ...user,
+        uuid: uuidv4()
+      },
+      password
+    })
     resolve()
   }, 200))
 }
