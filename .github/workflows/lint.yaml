@@ -1,6 +1,10 @@
 name: lint (pre-commit)
 
-on: [pull_request, push]
+on:
+  push:
+    branches:
+    - master
+  pull_request:
 
 jobs:
   pre-commit:
