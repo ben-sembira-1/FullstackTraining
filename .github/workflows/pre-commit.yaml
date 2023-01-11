@@ -21,7 +21,7 @@ jobs:
       - name: install grocery-store
         working-directory: ./Exercises/grocery-store
         run: npm install
-      - name: install quote-me
-        working-directory: ./Exercises/quote-me
+      - name: install quote-me-frontend
+        working-directory: ./Exercises/quote-me/frontend
         run: npm install
       - uses: pre-commit/action@v3.0.0
