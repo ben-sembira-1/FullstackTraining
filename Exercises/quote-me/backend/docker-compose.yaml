@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  quote-me:
+    image: quote-me/backend
+    command: uvicorn main:app --host 0.0.0.0
+    build: .
+    tty: true
+    ports:
+      - "8000:8000"

@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: 'Jost', "sans-serif";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+:root {
+  --theme-dark: #9538B7
+}
+
+.dark_button {
+  background-color: var(--theme-dark);
+  color: white;
+  border: 1px solid black;
+}
+
+.dark_button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.dark_button:active {
+  filter: brightness(1.2);
+  cursor: pointer;
+}

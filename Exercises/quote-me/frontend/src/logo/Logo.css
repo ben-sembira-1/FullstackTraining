@@ -1,0 +1,22 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+    height: 100%;
+    width: auto;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.2em;
+}
+
+.logo_image {
+    background-color: white;
+    height: 3em;
+    width: auto;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.2em;
+}
