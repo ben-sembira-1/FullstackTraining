@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
-import User from '../interfaces/user'
+import User, { NO_CONNECTED_USER } from '../interfaces/user'
 
 type UserWithPassword = {
   user: User
@@ -49,6 +49,7 @@ const checkUserValidity = async (user: User) => {
   if (user.lastName.trim().length === 0) throw new NameError('Please put a last name')
   if (user.username.includes(' ')) throw new InvalidUsernameError('The username should not include whitespaces')
   if (user.username.length === 0) throw new InvalidUsernameError('Please put a username')
+  if (user.username.toLowerCase() === NO_CONNECTED_USER.toLowerCase()) throw new InvalidUsernameError('You hacker! Choose a different username...')
   await checkImageValidity(user.photoUrl)
 }
 
