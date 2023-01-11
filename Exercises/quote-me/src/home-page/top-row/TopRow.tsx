@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
-import { ConnectedUser } from '../../contexts'
+import { ConnectedUserContext } from '../../common'
+import { NO_CONNECTED_USER } from '../../interfaces/user'
 import Logo from '../../logo/Logo'
 import UserThumbnail from '../../user-thumbnail/UserThumbnail'
 
 import './TopRow.css'
 
 const TopRow = () => {
-  const connectedUser = useContext(ConnectedUser)
+  const connectedUser = useContext(ConnectedUserContext)
 
   return (
     <div className='top_row'>
@@ -19,7 +20,7 @@ const TopRow = () => {
       <button className='top_row-add_new_button dark_button'>Add New Quote</button>
       <div className='top_row-user_thumbnail'>
         {
-          connectedUser !== undefined
+          connectedUser !== NO_CONNECTED_USER
             ? <UserThumbnail user={connectedUser}/>
             : null
         }

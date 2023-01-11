@@ -14,14 +14,15 @@ enum LoginPhase {
 // HELP:  I want to create a type for the NO_ERROR value so it will be valid to write: useState<string | NO_ERROR>
 //        but eslint says it is not a good idea and that I should no declare types and variables with the same name.
 //        What do you think is the best way to deal with it?
-const NO_ERROR = undefined
+const NO_ERROR = 'NO-ERROR'
+type ErrorMessage = string | typeof NO_ERROR
 
 type LoginProps = {
-  onLogin: (user: User | undefined) => void
+  onLogin: (user: User) => void
 }
 
 const Login: FunctionComponent<LoginProps> = (props) => {
-  const [errorMessage, setErrorMessage] = useState<string | typeof NO_ERROR>(NO_ERROR)
+  const [errorMessage, setErrorMessage] = useState<ErrorMessage>(NO_ERROR)
   const [loginPhase, setLoginPhase] = useState<LoginPhase>(LoginPhase.LOGIN)
 
   return (

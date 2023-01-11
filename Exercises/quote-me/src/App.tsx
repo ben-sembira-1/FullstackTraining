@@ -1,19 +1,19 @@
 import React, { FunctionComponent, useState } from 'react'
-import { ConnectedUser } from './contexts'
+import { ConnectedUserContext } from './common'
 import HomePage from './home-page/HomePage'
-import User from './interfaces/user'
+import { ConnectedUser, NO_CONNECTED_USER } from './interfaces/user'
 import Login from './login/Login'
 
 const App: FunctionComponent = () => {
-  const [connectedUser, setConnectedUser] = useState<User | undefined>(undefined)
+  const [connectedUser, setConnectedUser] = useState<ConnectedUser>(NO_CONNECTED_USER)
   return (
-    <ConnectedUser.Provider value={connectedUser}>
+    <ConnectedUserContext.Provider value={connectedUser}>
       {
-        connectedUser === undefined
+        connectedUser === NO_CONNECTED_USER
           ? <Login onLogin={ setConnectedUser } />
           : <HomePage/>
       }
-    </ConnectedUser.Provider>
+    </ConnectedUserContext.Provider>
   )
 }
 
