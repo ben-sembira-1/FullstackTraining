@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid'
-import axios from 'axios'
 import User, { NO_CONNECTED_USER } from '../interfaces/user'
 
 type UserWithPassword = {
@@ -25,7 +24,7 @@ class UsernameInUseError extends InvalidRegisterDetails { constructor () { super
 
 class InvalidPasswordError extends InvalidRegisterDetails { }
 
-class InvalidImageError extends InvalidRegisterDetails { constructor () { super('Invalid image') } }
+class InvalidImageError extends InvalidRegisterDetails { constructor () { super('Invalid photo URL') } }
 
 class InvalidUsernameError extends InvalidRegisterDetails { }
 
@@ -34,14 +33,33 @@ const checkPasswordValidity = (password: string) => {
 }
 
 const checkImageValidity = async (url: string) => {
-  axios.get(url)
-    .catch(() => { throw new InvalidImageError() })
+  console.debug(`checking image: ${url}`)
+  if (url === 'asdf') throw new Error('lsjdkf')
+  return await fetch(url, { method: 'HEAD' })
+    .then((response) => {
+      const contentType = response.headers.get('Content-Type')
+      if (contentType === null || !contentType.startsWith('image')) throw new InvalidImageError()
+    })
+    .catch(() => { console.debug('failed to fetch url'); throw new InvalidImageError() })
 }
 
 const checkUsernameNotInUse = async (username: string) => {
-  await setTimeout(() => {
-    if (gAllUsers.has(username)) throw new UsernameInUseError()
-  }, 200)
+  console.debug(`checking username: ${username}`)
+  return await new Promise(
+    (resolve, reject) => setTimeout(() => {
+      if (gAllUsers.has(username)) {
+        console.debug('user in use')
+        reject(new UsernameInUseError())
+      }
+      console.debug('finished')
+      resolve(null)
+    }, 200)
+  )
+  // return await new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     if (gAllUsers.has(username)) reject(new UsernameInUseError())
+  //   }, 200)
+  // })
 }
 
 const checkUserValidity = async (user: User) => {

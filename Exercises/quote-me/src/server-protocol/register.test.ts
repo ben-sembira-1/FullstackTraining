@@ -22,8 +22,8 @@ describe('register', () => {
   ])(
     'should throw when invalid username is given: \'%s\'',
     async (username) => {
-      const invalidFirstNameUser: User = { ...validUser(), username }
-      await expect(register(invalidFirstNameUser, 'test-password')).rejects.toThrow()
+      const invalidUsernameUser: User = { ...validUser(), username }
+      await expect(register(invalidUsernameUser, 'test-password')).rejects.toThrow()
     }
   )
   it.each([
@@ -40,4 +40,13 @@ describe('register', () => {
       await expect(register(invalidNameUser, 'test-password')).rejects.toThrow()
     }
   )
+  it('should throw when username is taken', async () => {
+    const sameUser = validUser()
+    await register(sameUser, 'test-password')
+    await expect(register(sameUser, 'test-password')).rejects.toThrow()
+  })
+  it('should throw when broken photo url is given', async () => {
+    const invalidPhotoURLUser: User = { ...validUser(), photoUrl: '' }
+    await expect(register(invalidPhotoURLUser, 'test-password')).rejects.toThrow()
+  })
 })

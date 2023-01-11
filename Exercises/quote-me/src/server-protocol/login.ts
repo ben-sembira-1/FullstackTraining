@@ -2,7 +2,7 @@ import User from '../interfaces/user'
 import { gAllUsers } from './register'
 
 const serverQueryMock = async (request: string, answer: string, timeoutms: number = 200): Promise<string> => {
-  console.log(`fetching the request: ${request}`)
+  console.debug(`fetching the request: ${request}`)
   return await new Promise(
     (resolve) => setTimeout(() => resolve(answer), timeoutms)
   )
