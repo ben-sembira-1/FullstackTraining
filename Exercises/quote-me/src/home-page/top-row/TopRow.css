@@ -1,0 +1,28 @@
+.top_row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  height: 100%;
+  font-size: 1rem;
+  overflow: hidden;
+  justify-items: center;
+  align-items: center;
+}
+
+.top_row-logo {
+  grid-column: 1;
+}
+
+.top_row-phrase {
+  grid-column: 2;
+}
+
+.top_row-add_new_button {
+  grid-column: 3;
+  width: auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.top_row-user_thumbnail {
+  grid-column: 4;
+}
