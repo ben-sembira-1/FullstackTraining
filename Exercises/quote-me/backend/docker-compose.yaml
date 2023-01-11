@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  quote-me:
+    image: quote-me/backend
+    build: .
+    tty: true
+    # ports:
+    #   - "8000:5000"
