@@ -18,11 +18,19 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    'react'
+    'react',
+    'file-progress'
   ],
   rules: {
     indent: ['error', 2],
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/explicit-function-return-type': 'off'
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'file-progress/activate': 1
+  },
+  settings: {
+    progress: {
+      hide: false, // hides the progress with spinner. Print's a static `Linting...` text
+      successMessage: 'Lint done...'
+    }
   }
 }
