@@ -1,8 +1,11 @@
 FROM ubuntu:jammy
 
 RUN apt-get update && apt-get install -y python3 python3-pip
-RUN pip install fastapi
+RUN pip install \
+  fastapi \
+  "uvicorn[standard]"
 
 COPY . /app
 
-CMD [ "python3", "/app/src/main.py" ]
+WORKDIR /app/src
+CMD [ "uvicorn", "main:app" ]
