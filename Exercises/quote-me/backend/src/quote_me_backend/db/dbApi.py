@@ -1,10 +1,11 @@
 from uuid import uuid4
 
-from db.protocol import DBUserDoesNotExistError, QuoteMeDB
-from interfaces.user import User, UserWithPassword
+from quote_me_backend.interfaces.user import User
 
-ALL_USERS: dict[str, UserWithPassword] = {
-    "yoel": UserWithPassword(
+from .protocol import DBUser, DBUserDoesNotExistError, QuoteMeDB
+
+ALL_USERS: dict[str, DBUser] = {
+    "yoel": DBUser(
         user=User(
             firstName="Yoel",
             lastName="Basin",
@@ -12,7 +13,7 @@ ALL_USERS: dict[str, UserWithPassword] = {
             photoUrl="",
             uuid="abcd",
         ),
-        password="pass",
+        password_hash="hash_pass",
     )
 }
 
@@ -23,7 +24,7 @@ class UserNotFoundError(Exception):
     pass
 
 
-def get_user_by_username(db: QuoteMeDB, username: str) -> UserWithPassword:
+def get_user_by_username(db: QuoteMeDB, username: str) -> DBUser:
     try:
         return db.get_user(username)
     except DBUserDoesNotExistError:

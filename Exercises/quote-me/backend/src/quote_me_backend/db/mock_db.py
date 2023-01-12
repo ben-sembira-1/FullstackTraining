@@ -1,6 +1,6 @@
 from threading import Lock
 
-from interfaces.user import User
+from quote_me_backend.interfaces.user import User
 
 from .protocol import (
     DBDateIsFromTheFutureError,
@@ -24,7 +24,7 @@ def _index_for_sorted_insert_quote(
 
 class MockDB:
     def __init__(self):
-        self.data: DBScheme = DBScheme()
+        self.data: DBScheme = DBScheme(users={}, quotes=[])
         self.users_lock = Lock()
         self.quotes_lock = Lock()
 

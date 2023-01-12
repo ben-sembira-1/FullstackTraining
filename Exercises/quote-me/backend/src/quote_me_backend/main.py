@@ -2,9 +2,10 @@ import secrets
 from dataclasses import dataclass
 from typing import Optional
 
-from db import dbApi, mock_db
 from fastapi import FastAPI, HTTPException, status
-from interfaces import User
+
+from .db import dbApi, mock_db
+from .interfaces import User
 
 app = FastAPI()
 db = mock_db.MockDB()
@@ -53,7 +54,7 @@ def register(user: User, password: str):
 
 
 @app.get("/api/currentLoggedUser")
-def logged_in_user(session_token):
+def logged_in_user(session_token) -> User:
     logged_user = dbApi.get_user_by_session(db, session_token)
     if logged_user is not None:
         return logged_user

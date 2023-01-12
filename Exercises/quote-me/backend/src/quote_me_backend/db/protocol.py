@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Protocol
 
-from interfaces.quote import Quote
-from interfaces.user import User
 from pydantic import BaseModel
+from quote_me_backend.interfaces.quote import Quote
+from quote_me_backend.interfaces.user import User
 
 
 class DBUser(BaseModel):
