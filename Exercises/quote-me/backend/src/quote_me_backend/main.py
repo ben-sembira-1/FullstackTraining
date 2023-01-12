@@ -1,8 +1,8 @@
-import secrets
 from dataclasses import dataclass
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException, status
+from quote_me_backend.db.protocol import DBSessionNotFoundError
 
 from .db import dbApi, mock_db
 from .interfaces import User
@@ -20,25 +20,27 @@ class LoginResponse:
 SessionToken = str
 
 
-@app.get("/api/login")
-def login(username: str, password: str) -> SessionToken:
+def check_user_exists(username):
     try:
-        user_with_password = dbApi.get_user_by_username(db, username)
+        dbApi.get_user_by_username(db, username)
     except dbApi.UserNotFoundError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User not found",
         )
 
-    if not secrets.compare_digest(
-        password.encode("utf8"), user_with_password.password.encode("utf8")
-    ):
+
+@app.get("/api/login")
+def login(username: str, password: str) -> SessionToken:
+    check_user_exists(username)
+
+    if not dbApi.is_password_correct(db, username, password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect password",
         )
 
-    session_token = dbApi.create_session(db, user_with_password.user)
+    session_token = dbApi.create_session(db, username)
     return session_token
 
 
@@ -55,13 +57,13 @@ def register(user: User, password: str):
 
 @app.get("/api/currentLoggedUser")
 def logged_in_user(session_token) -> User:
-    logged_user = dbApi.get_user_by_session(db, session_token)
-    if logged_user is not None:
-        return logged_user
-    raise HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Not logged in",
-    )
+    try:
+        return dbApi.get_user_by_session(db, session_token).user
+    except DBSessionNotFoundError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Not logged in",
+        )
 
 
 @app.post("/api/logout")

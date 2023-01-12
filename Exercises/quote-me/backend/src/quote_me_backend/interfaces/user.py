@@ -1,3 +1,5 @@
+from uuid import UUID
+
 import pydantic
 
 
@@ -6,4 +8,4 @@ class User(pydantic.BaseModel):
     lastName: str
     username: str
     photoUrl: str
-    uuid: str
+    uuid: UUID
