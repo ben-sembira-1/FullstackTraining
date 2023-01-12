@@ -12,6 +12,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies  = ["pytest", "fastapi"]
 
 [project.urls]
 "Homepage" = "https://github.com/ben-sembira-1/FullstackTraining/"
