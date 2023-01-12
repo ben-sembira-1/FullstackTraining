@@ -52,9 +52,14 @@ repos:
         language: node
       - id: test-quote-me-frontend
         files: '^Exercises/quote-me/frontend/.*$'
-        name: test-quote-me
+        name: test-quote-me-frontend
         entry: bash -c "cd Exercises/quote-me/frontend; npm test"
         language: node
+      - id: test-quote-me-backend
+        files: '^Exercises/quote-me/backend/.*$'
+        name: test-quote-me-backend
+        entry: bash -c "cd Exercises/quote-me/backend; pytest"
+        language: python
 
       - id: eslint-grocery-store
         files: '^Exercises/grocery-store/.*$'

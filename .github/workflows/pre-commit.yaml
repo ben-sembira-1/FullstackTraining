@@ -24,4 +24,7 @@ jobs:
       - name: install quote-me-frontend
         working-directory: ./Exercises/quote-me/frontend
         run: npm install
+      - name: install quote-me-backend
+        working-directory: ./Exercises/quote-me/backend
+        run: pip install .
       - uses: pre-commit/action@v3.0.0
