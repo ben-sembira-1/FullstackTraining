@@ -1,0 +1,24 @@
+.home_page {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-rows: 7rem 1fr;
+  grid-template-areas:
+    "top_row        top_row   top_row   top_row"
+    "hall_of_fame   feed      feed      feed";
+  gap: 1rem;
+}
+
+.top_row_container {
+  grid-area: top_row;
+}
+
+.hall_of_fame_container {
+  grid-area: hall_of_fame;
+}
+
+.feed_container {
+  display: flex;
+  grid-area: feed;
+  overflow-y: scroll;
+  justify-content: flex-start;
+}

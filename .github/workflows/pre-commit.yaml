@@ -1,6 +1,10 @@
-name: pre-commit-navbar
+name: pre-commit
 
-on: [pull_request, push]
+on:
+  push:
+    branches:
+    - master
+  pull_request:
 
 jobs:
   pre-commit:
@@ -9,10 +13,18 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: install navbar
         working-directory: ./Exercises/navbar
         run: npm install
       - name: install grocery-store
         working-directory: ./Exercises/grocery-store
         run: npm install
+      - name: install quote-me-frontend
+        working-directory: ./Exercises/quote-me/frontend
+        run: npm install
+      - name: install quote-me-backend
+        working-directory: ./Exercises/quote-me/backend
+        run: pip install .
       - uses: pre-commit/action@v3.0.0
