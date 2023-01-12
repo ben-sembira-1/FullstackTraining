@@ -1,5 +1,6 @@
 from uuid import uuid4
 
+from db.protocol import DBUserDoesNotExistError, QuoteMeDB
 from interfaces.user import User, UserWithPassword
 
 ALL_USERS: dict[str, UserWithPassword] = {
@@ -22,10 +23,10 @@ class UserNotFoundError(Exception):
     pass
 
 
-def get_user_by_username(username: str) -> UserWithPassword:
+def get_user_by_username(db: QuoteMeDB, username: str) -> UserWithPassword:
     try:
-        return ALL_USERS[username]
-    except KeyError:
+        return db.get_user(username)
+    except DBUserDoesNotExistError:
         raise UserNotFoundError()
 
 
