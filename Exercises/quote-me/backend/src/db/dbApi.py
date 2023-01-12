@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from interfaces.user import User, UserWithPassword
 
 ALL_USERS: dict[str, UserWithPassword] = {
@@ -32,8 +34,10 @@ def get_user_by_session(session_token: str):
         return SESSIONS[session_token]
 
 
-def create_session(session_token: str, user: User):
+def create_session(user: User):
+    session_token = uuid4()
     SESSIONS[session_token] = user
+    return session_token
 
 
 def delete_session(session_token: str):

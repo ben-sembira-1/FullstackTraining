@@ -1,8 +1,9 @@
+import secrets
 from dataclasses import dataclass
 from typing import Optional
 
 from db import dbApi
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 from interfaces import User
 
 app = FastAPI()
@@ -14,24 +15,34 @@ class LoginResponse:
     reason: str = ""
 
 
+SessionToken = str
+
+
 @app.get("/api/login")
-def login(username: str, password: str, session_token: str) -> LoginResponse:
+def login(username: str, password: str) -> SessionToken:
     try:
         user_with_password = dbApi.get_user_by_username(username)
     except dbApi.UserNotFoundError:
-        return LoginResponse(None, "User not found")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User not found",
+        )
 
-    if password != user_with_password.password:
-        return LoginResponse(None, "Incorrect password")
+    if not secrets.compare_digest(
+        password.encode("utf8"), user_with_password.password.encode("utf8")
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect password",
+        )
 
-    dbApi.create_session(session_token, user_with_password.user)
-
-    return LoginResponse(get_current_logged_in_user(session_token))
+    session_token = dbApi.create_session(user_with_password.user)
+    return session_token
 
 
 @app.get("/api/currentLoggedUser")
 def get_current_logged_in_user(session_token: str) -> Optional[User]:
-    dbApi.get_user_by_session(session_token)
+    return dbApi.get_user_by_session(session_token)
 
 
 @app.post("/api/logout")
